@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-
 {% block title %}Step and Go{% endblock %}
 
 
 {% block body %}
+<main class="container">
 
-<h1>{{ website }}</h1>
+    <h1 class="text-center mt-5"><img src="{{ asset('build/images/dancer.png') }}" alt="Dancer" width="100px">{{ website }}</h1>
 
-<img src="{{ asset('build/images/dancer.png') }}" alt="Dancer">
+    
+
+</main>
 
 {% endblock %}
