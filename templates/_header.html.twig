@@ -1,5 +1,4 @@
-<h1 class="text-center mt-5">Step&Go</h1>
-<img src="{{ asset('build/images/dancer.png') }}" alt="Dancer" width="100px">
+<h1 class="text-center mt-5 mb-5">Step&Go</h1>
 
 <nav class="navbar navbar-expand-lg">
 	<div class="container-fluid">
@@ -39,11 +38,14 @@
 						<li>
 							<a class="dropdown-item" href="">Les professeurs</a>
 						</li>
+						<li>
+							<a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
+						</li>
 					</ul>
 				</li>
 			{% else %}
-				<li>
-					<img src="{{ asset('build/images/ballerine.png') }}" alt="Ballerine login" width="35px">
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('app_login') }}"><img src="{{ asset('build/images/ballerine.png') }}" alt="Ballerine login"></a>
 				</li>
 			{% endif %}
 		</div>

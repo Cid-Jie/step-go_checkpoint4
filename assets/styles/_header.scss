@@ -1,0 +1,59 @@
+@import "_var.scss";
+
+h1 {
+    font-family: $title-font;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.navbar-expand-lg {
+    background-color: $primary-pink;
+}
+
+.navbar-collapse {
+    justify-content: center;
+}
+
+a.nav-link {
+    color: $primary-white;
+    font-family: $title-font;
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+    text-decoration: none;
+    img {
+        width: 35px;
+    }
+}
+a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 2px;
+    width: 0%;
+    left: 0px;
+    height: 3px;
+    transition: 0.25s cubic-bezier(0.72,-0.01, 0.19, 0.92);
+    background: $primary-white;
+}
+a:hover:after {
+    width: 100%;
+}
+
+a.nav-link:hover {
+    color: $primary-white;
+}
+a.nav-link.dropdown-toggle {
+    color: $primary-white;
+}
+
+.nav-item {
+    list-style-type: none;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.navbar-toggler, .navbar-toggler-icon, span {
+    color: $primary-white;
+}
+

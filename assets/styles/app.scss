@@ -1,26 +1,5 @@
-@import "~bootstrap/scss/bootstrap";
+@import "_header.scss";
+@import "_login.scss";
 
-body {
-    background-color: rgb(255, 255, 255);
-}
 
-.navbar-expand-lg {
-    background-color: #F8CACA;
-}
 
-.navbar-collapse {
-    justify-content: center;
-}
-
-.nav-link {
-    color: white;
-}
-
-.nav-item {
-    padding-left: 50px;
-    padding-right: 50px;
-}
-
-.navbar-toggler, .navbar-toggler-icon, span {
-    color: white;
-}
