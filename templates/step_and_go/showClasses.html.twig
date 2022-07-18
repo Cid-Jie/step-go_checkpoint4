@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les cours de danses{% endblock %}
+
+
+{% block body %}
+
+<main class="container">
+
+{% for dance in danceClasses %}
+    <p>{{ dance.name  }} - {{ dance.description }}</p>
+{% endfor %}
+
+</main>
+
+{% endblock %}
