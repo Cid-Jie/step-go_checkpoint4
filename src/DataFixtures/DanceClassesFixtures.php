@@ -35,6 +35,8 @@ class DanceClassesFixtures extends Fixture
             $classes = new DanceClasses();
             $classes->setName($danceClasses['name']);
             $classes->setDescription($danceClasses['description']);
+            $this->addReference('dance_classes_' . $danceClasses['name'], $classes);
+            
             $manager->persist($classes);
         }
         $manager->flush();

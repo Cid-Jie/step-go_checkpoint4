@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les professeurs{% endblock %}
+
+
+{% block body %}
+
+<main class="container">
+
+{% for teacher in danceTeachers %}
+    <p>{{ teacher.firstname }} - {{ teacher.lastname }}</p>
+    <p>{{ teacher.story }}</p>
+    <p>{{ teacher.DanceClasses.name}}</p>
+{% endfor %}
+
+</main>
+
+{% endblock %}

@@ -8,8 +8,18 @@
 <main class="container">
 
 {% for dance in danceClasses %}
-    <p>{{ dance.name  }} - {{ dance.description }}</p>
+
+<div class="d-inline-flex m-3 card" style="width: 18rem;">
+  <img class="card-img-top" src="" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ dance.name  }}</h5>
+    <a href="#" class="btn btn-primary">Voir plus</a>
+  </div>
+</div>
+
 {% endfor %}
+
+
 
 </main>
 

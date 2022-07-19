@@ -4,8 +4,11 @@
 
 {% block body %}
 <main class="container">
-    <h1 class="text-center mt-5 mb-5">DanceClasses index</h1>
 
+    <h1 class="text-center mt-5 mb-5">Cours de danse</h1>
+
+    <a href="{{ path('app_dance_classes_new') }}">Create new</a>
+    
     <table class="table">
         <thead>
             <tr>
@@ -20,7 +23,7 @@
             <tr>
                 <td>{{ dance_class.id }}</td>
                 <td>{{ dance_class.name }}</td>
-                <td>{{ dance_class.description|striptags|slice(0,100) }}</td>
+                <td>{{ dance_class.description|striptags|slice(0,60) }}</td>
                 <td>
                     <a href="{{ path('app_dance_classes_show', {'id': dance_class.id}) }}">show</a>
                     <a href="{{ path('app_dance_classes_edit', {'id': dance_class.id}) }}">edit</a>
@@ -33,7 +36,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_dance_classes_new') }}">Create new</a>
 </main>
 {% endblock %}
