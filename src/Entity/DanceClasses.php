@@ -25,6 +25,9 @@ class DanceClasses
     #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: DanceTeacher::class)]
     private Collection $danceTeachers;
 
+    #[ORM\Column(length: 255)]
+    private ?string $poster = null;
+
     public function __construct()
     {
         $this->danceTeachers = new ArrayCollection();
@@ -85,6 +88,18 @@ class DanceClasses
                 $danceTeacher->setDanceClasses(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPoster(): ?string
+    {
+        return $this->poster;
+    }
+
+    public function setPoster(string $poster): self
+    {
+        $this->poster = $poster;
 
         return $this;
     }

@@ -8,9 +8,15 @@
 <main class="container">
 
 {% for teacher in danceTeachers %}
-    <p>{{ teacher.firstname }} - {{ teacher.lastname }}</p>
-    <p>{{ teacher.story }}</p>
-    <p>{{ teacher.DanceClasses.name}}</p>
+ 
+    <div class="d-inline-flex m-3 card" style="width: 18rem;">
+        <img class="card-img-top" src="https://i.pravatar.cc/300" alt="Card image cap">
+        <div class="card-body">
+        <h5 class="card-title">{{ teacher.firstname }} - {{ teacher.lastname }}</h5>
+        <p>{{ teacher.DanceClasses.name}}</p>
+        <a href="#" class="btn btn-primary">Voir plus</a>
+    </div>
+</div>
 {% endfor %}
 
 </main>

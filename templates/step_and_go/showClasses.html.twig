@@ -2,25 +2,24 @@
 
 {% block title %}Les cours de danses{% endblock %}
 
-
 {% block body %}
+<main class="text-center">
 
-<main class="container">
+    {% for dance in danceClasses %}
 
-{% for dance in danceClasses %}
+    <div class="d-inline-flex m-3 ">
+        <div class="card-style" style="width: 18rem;">
+            <img class="card-img-top" src="{{ dance.poster  }}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title text-center">{{ dance.name }}</h5>
+                <p class="text-center">
+                    <button type="button" class="button-action-card">Voir plus</button>
+                </p>
+            </div>
+        </div>
+    </div>
 
-<div class="d-inline-flex m-3 card" style="width: 18rem;">
-  <img class="card-img-top" src="" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">{{ dance.name  }}</h5>
-    <a href="#" class="btn btn-primary">Voir plus</a>
-  </div>
-</div>
-
-{% endfor %}
-
-
+    {% endfor %}
 
 </main>
-
 {% endblock %}
