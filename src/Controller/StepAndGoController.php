@@ -41,8 +41,11 @@ class StepAndGoController extends AbstractController
     }
 
     #[Route('/step/contact', name: 'app_dance_contact')]
-    public function contact(): Response
+    public function contact(DanceClassesRepository $danceClassesRepository): Response
     {
-        return $this->render('step_and_go/contact.html.twig');
+        $danceClasses = $danceClassesRepository->findAll();
+        return $this->render('step_and_go/contact.html.twig', [
+            'danceClasses' => $danceClasses,
+        ]);
     }
 }

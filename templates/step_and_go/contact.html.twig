@@ -7,7 +7,45 @@
 
 <main class="container">
 
+    <h1 class="text-center mt-5 mb-5">Formulaire de contact</h1>
 
+    <form action="" method="post">
+    <div class="text-center mt-5 mb-5">
+        <div class="text-center mt-5 mb-5">
+            <label for="last_name">Nom *</label></br>
+            <input id="lastname" type="text" placeholder="Nom" name="lastname" pattern="^\D*$" required>
+        </div>
+    
+        <div class="text-center mt-5 mb-5">
+            <label for="first_name">Prénom *</label></br>
+            <input id="firstname" type="text" placeholder="Prénom" name="firstname" pattern="^\D*$" required>
+        </div>
+    
+        <div class="text-center mt-5 mb-5">
+            <label for="email">Email *</label></br>
+            <input id="email" type="email" placeholder="Email" name="email" required>
+        </div>
+
+        <div class="text-center mt-5 mb-5">
+            <label for="dance">Choisir un cours de danse *</label></br>
+            <select id="dance_classes" name="dance" required>
+                <option disabled selected value> -- Choisir un cours de danse -- </option>
+                {% for dance in danceClasses %}
+                    <option value="{{ dance.name }}">{{ dance.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    
+       <div class="text-center mt-5 mb-5">
+            <label for="message">Vous souhaitez-nous transmettre un message?</label></br>
+            <textarea id="message" name="message"></textarea>
+        </div>
+    
+        <div class="text-center mt-5 mb-5">
+            <button type="submit" id="actionForm">Envoyer</button>
+        </div>
+    </div>
+    </form>
 
 </main>
 

@@ -13,3 +13,7 @@ import './bootstrap';
 
 // the bootstrap module doesn't export/return anything
 require('bootstrap');
+
+//import js files
+import './js/form.js';
+import './js/card.js';

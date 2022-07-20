@@ -53,7 +53,10 @@ a.nav-link.dropdown-toggle {
     padding-right: 30px;
 }
 
-.navbar-toggler, .navbar-toggler-icon, span {
+.navbar-toggler {
     color: $primary-white;
+    img {
+        text-align: center;
+    }
 }
 
