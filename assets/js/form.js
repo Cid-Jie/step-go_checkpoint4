@@ -1,3 +1,7 @@
+
+
+
+
 /* const inputs = document.querySelectorAll("input")
 const textareas = document.querySelectorAll("textarea")
 
@@ -17,9 +21,20 @@ const checkValidity = (input) => {
 }
 
 Array.from(inputs).forEach(checkValidity);
-Array.from(textareas).forEach(checkValidity); */
+Array.from(textareas).forEach(checkValidity);
 
-/* const form = document.querySelector('form');
+
+
+
+
+
+
+
+
+
+
+
+const form = document.querySelector('form');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -67,9 +82,9 @@ const checkValidity = (input) => {
     })
 }
 
-Array.from(inputs).forEach(checkValidity); */
+Array.from(inputs).forEach(checkValidity);
 
-/* var fields = {};
+ var fields = {};
 
 document.addEventListener("DOMContentLoaded", function() {
     fields.firstName = document.getElementById('firstname');
@@ -136,52 +151,37 @@ buttonActionForm.addEventListener('click', () => {
     } else {
         alert('Une erreur a du se produire, nous ne pouvons envoyer votre demande. Veuillez recommencer !')
     }
-}); */
+});
 
+const actionForm = document.getElementById('action-form');
+actionForm.addEventListener('click', () => {
+    alert('Votre message a bien été envoyé, nous vous répondrons dans les plus brefs délais.')
+})
 
+ */
 
-const inputs = document.querySelectorAll("input");
-const textareas = document.querySelectorAll("textarea");
+/* const inputs = document.querySelectorAll("input")
+
+const textareas = document.querySelectorAll("textarea")
 
 const checkValidity = (input) => {
     input.addEventListener('invalid', (e) => {
+        e.preventDefault()
         if (!e.target.validity.valid) {
-            error.innerHTML = "Il y a une erreur dans votre formulaire!";
-            error.className = "error active";
-            e.preventDefault()
-        }
-    input.addEventListener('input', (e) => {
-        if (e.target.validity.valid) {
-            error.innerHTML = "";
-            error.className = "error";    
+            e.target.parentElement.classList.add('error')
         }
     })
+
+    input.addEventListener('input', (e) => {
+        if (e.target.validity.valid) {
+            e.target.parentElement.classList.remove('error')
+        }
     })
 }
 
-Array.from(inputs).forEach(checkValidity);
-Array.from(textareas).forEach(checkValidity);
+const actionForm = document.getElementById('action-form');
+actionForm.addEventListener('click', () => {
+    alert('Votre message a bien été envoyé, nous vous répondrons dans les plus brefs délais.')
+}) */
 
-class User {
-    constructor(firstName, lastName, email, dance, message) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
-    this.dance = dance;
-    this.message = message;
-    }
-}
 
-const buttonActionForm = document.getElementById('actionForm');
-buttonActionForm.addEventListener('click', () => {
-    input.addEventListener('input', (e) => {
-        if (e.target.validity.valid) {
-            error.innerHTML = "";
-            error.className = "error";        
-            let usr = new User(firstname.value, lastname.value, dance.value, email.value, message.value);
-            alert("Votre message à bien été envoyé, nous vous répondrons dans les plus brefs délais")    
-        } else {
-            alert('Une erreur a du se produire, nous ne pouvons envoyer votre demande. Veuillez recommencer !')
-    }
-    }) 
-});

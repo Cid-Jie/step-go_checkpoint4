@@ -7,45 +7,68 @@
 
 <main class="container">
 
-    <h1 class="text-center mt-5 mb-5">Formulaire de contact</h1>
+        <h1 class="text-center mt-5">Formulaire de pré-inscription</h1>
 
-    <form action="" method="post">
-    <div class="text-center mt-5 mb-5">
-        <div class="text-center mt-5 mb-5">
-            <label for="last_name">Nom *</label></br>
-            <input id="lastname" type="text" placeholder="Nom" name="lastname" pattern="^\D*$" required>
-        </div>
-    
-        <div class="text-center mt-5 mb-5">
-            <label for="first_name">Prénom *</label></br>
-            <input id="firstname" type="text" placeholder="Prénom" name="firstname" pattern="^\D*$" required>
-        </div>
-    
-        <div class="text-center mt-5 mb-5">
-            <label for="email">Email *</label></br>
-            <input id="email" type="email" placeholder="Email" name="email" required>
-        </div>
+    <div class="form-content">
+        <form action="" method="post">
+            <div class="mt-5 mb-2">
+                <label for="last_name" class="form-label">Nom *</label></br>
+                <input id="lastname" class="form-control" type="text" name="lastname" pattern="^\D*$" required>
+            </div>
+        
+            <div class="mb-2">
+                <label for="first_name" class="form-label">Prénom *</label></br>
+                <input id="firstname" class="form-control" type="text" name="firstname" pattern="^\D*$" required>
+            </div>
+        
+            <div class="mb-2">
+                <label for="email" class="form-label">Email *</label></br>
+                <input id="email" class="form-control" type="email" placeholder="@examplecom" name="email" required>
+            </div>
 
-        <div class="text-center mt-5 mb-5">
-            <label for="dance">Choisir un cours de danse *</label></br>
-            <select id="dance_classes" name="dance" required>
-                <option disabled selected value> -- Choisir un cours de danse -- </option>
-                {% for dance in danceClasses %}
-                    <option value="{{ dance.name }}">{{ dance.name }}</option>
-                {% endfor %}
-            </select>
-        </div>
-    
-       <div class="text-center mt-5 mb-5">
-            <label for="message">Vous souhaitez-nous transmettre un message?</label></br>
-            <textarea id="message" name="message"></textarea>
-        </div>
-    
-        <div class="text-center mt-5 mb-5">
-            <button type="submit" id="actionForm">Envoyer</button>
-        </div>
+            <div class="mb-2">
+                <label for="dance" class="form-label">Choisir un cours de danse *</label></br>
+                <select id="dance_classes" class="form-control text-center" name="dance" required>
+                    <option disabled selected value> -- Choisir un cours de danse -- </option>
+                    {% for dance in danceClasses %}
+                        <option value="{{ dance.name }}">{{ dance.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-2">
+                <label for="choice" class="form-label">Raison du contact *</label></br>
+                <select id="choice" class="form-control text-center" name="choice" required>
+                    <option disabled selected value> -- Choisir parmi les propositions -- </option>
+                        <option value="incription">Incription</option>
+                        <option value="renseignement">Renseignement</option>
+                        <option value="financement">Financement</option>
+                        <option value="autre_choix">Autre choix</option>
+                </select>
+            </div>
+        
+            <div class="mb-2">
+                <label for="message" class="form-label">Vous souhaitez-nous transmettre un message?</label></br>
+                <textarea id="message" class="form-control text-center" name="message"></textarea>
+            </div>
+        
+            <div class="text-center mb-2">
+                <button type="submit" id="actionForm">Envoyer</button>
+            </div>
+        </form>
     </div>
-    </form>
+
+    <h1 class="text-center mt-5">Informations</h1>
+
+    <div class="text-center mt-5 mb-5">
+        <p>Horraires : Du lundi au vendredi : de 17h à 22h30</p>
+
+        <p>Adresse : 17 avenue du quartier de la Danse </br>
+        69008 LYON</p>
+
+        <p>Nous trouver : </p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2824439.2682905355!2d1.1122882447200912!3d46.26530525690529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4c1e36e3794dd%3A0x1b364b89d5bea84!2sMaison%20de%20la%20Danse!5e0!3m2!1sfr!2sfr!4v1658337432816!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 
 </main>
 

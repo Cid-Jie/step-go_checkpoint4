@@ -12,9 +12,8 @@
             <img class="card-img-top" src="{{ dance.poster  }}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title text-center">{{ dance.name }}</h5>
-                <p>{{ dance.description }}</p>
                 <p class="text-center">
-                    <button type="button" class="button-action-card">Voir plus</button>
+                    <button type="button" id="button-action-card-{{ dance.name }}">Voir plus</button>
                 </p>
             </div>
         </div>
@@ -22,5 +21,18 @@
 
     {% endfor %}
 
+{#     {% for dance in danceClasses %}
+    <div class="modal-container-{{ dance.name }}" id="modal-container">
+            <div class="overlay modal-trigger"></div>
+
+            <div class="modal-content">
+                <button class="close-modal modal-trigger">X</button>
+                <h1>{{ dance.name }}</h1>
+                <img class="card-img-top" src="{{ dance.poster  }}" alt="Card image cap">
+                <p>{{ dance.description }}</p>
+            </div>
+    </div>
+    {% endfor %}
+ #}
 </main>
 {% endblock %}
