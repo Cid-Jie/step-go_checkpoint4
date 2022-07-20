@@ -24,6 +24,9 @@ class DanceTeacherType extends AbstractType
             ->add('story', TextType::class, [
                 'label' => 'Histoire',
             ])
+            ->add('photo', TextType::class, [
+                'label' => 'Photo',
+            ])
             ->add('danceClasses', EntityType::class, [
                 'class' => DanceClasses::class,
                 'choice_label' => 'name',

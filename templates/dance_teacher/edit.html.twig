@@ -3,11 +3,15 @@
 {% block title %}Edit DanceTeacher{% endblock %}
 
 {% block body %}
-    <h1>Edit DanceTeacher</h1>
+<main class="container">
+    <h1 class="text-center mt-5 mb-5">Edit DanceTeacher</h1>
 
     {{ include('dance_teacher/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_dance_teacher_index') }}">back to list</a>
+    <p class="text-center mt-5 mb-5">
+        <a href="{{ path('app_dance_teacher_index') }}">back to list</a>
+    </p>
 
     {{ include('dance_teacher/_delete_form.html.twig') }}
+</main>
 {% endblock %}
