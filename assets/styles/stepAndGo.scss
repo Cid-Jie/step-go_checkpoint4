@@ -37,7 +37,29 @@ h5 {
 }
 
 //Dance Teachers
+.card-img-top {
+    width: 100%;
+    height: 300px;
+}
 
+h5 {
+    font-family: $title-font;
+    font-weight: bold;
+}
+
+.button-action-card {
+    padding: 5px;
+    color: $primary-white;
+    background-color: $primary-pink;
+    border-radius: 5px;
+    font-family: $title-font;
+    font-size: 14px;
+}
+
+.card-style {
+    border-radius: 10px;
+    box-shadow: 5px 2px 2px $primary-grey;
+}
 
 
 //Planning

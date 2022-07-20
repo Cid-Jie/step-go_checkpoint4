@@ -26,6 +26,9 @@ class DanceTeacher
     #[ORM\ManyToOne(inversedBy: 'danceTeachers')]
     private ?DanceClasses $danceClasses = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $photo = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +78,18 @@ class DanceTeacher
     public function setDanceClasses(?DanceClasses $danceClasses): self
     {
         $this->danceClasses = $danceClasses;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }
