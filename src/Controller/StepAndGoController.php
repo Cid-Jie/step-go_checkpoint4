@@ -40,12 +40,6 @@ class StepAndGoController extends AbstractController
         return $this->render('step_and_go/planning.html.twig');
     }
 
-    #[Route('/step/inscription', name: 'app_dance_inscription')]
-    public function inscription(): Response
-    {
-        return $this->render('step_and_go/inscription.html.twig');
-    }
-
     #[Route('/step/contact', name: 'app_dance_contact')]
     public function contact(): Response
     {

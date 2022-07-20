@@ -61,13 +61,16 @@ h5 {
     box-shadow: 5px 2px 2px $primary-grey;
 }
 
-
 //Planning
+.planning-image {
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
 
-
-
-//Inscription
-
-
+.content-register {
+    text-align: justify;
+}
 
 //Contact
