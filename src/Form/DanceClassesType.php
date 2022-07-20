@@ -20,6 +20,9 @@ class DanceClassesType extends AbstractType
             ->add('description', TextareaType::class, [
                 'label' => 'Description'
             ])
+            ->add('poster', TextType::class, [
+                'label' => 'Photo'
+            ])
         ;
     }
 

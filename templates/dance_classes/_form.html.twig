@@ -1,4 +1,26 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <p class="my-custom-class-for-errors">
+    {{ form_errors(form) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.name) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        {{ form_widget(form.name) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.description) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        {{ form_widget(form.description) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.poster) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        {{ form_widget(form.poster) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    </p>
 {{ form_end(form) }}
