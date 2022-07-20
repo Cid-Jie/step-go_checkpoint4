@@ -7,13 +7,13 @@
 
     {% for dance in danceClasses %}
 
-    <div class="d-inline-flex m-3 ">
+    <div class="cardDance d-inline-flex m-3 ">
         <div class="card-style" style="width: 18rem;">
             <img class="card-img-top" src="{{ dance.poster  }}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title text-center">{{ dance.name }}</h5>
-                <p class="text-center">
-                    <button type="button" id="button-action-card-{{ dance.name }}">Voir plus</button>
+                <p class="mt-2 mb-2">
+                    {{ dance.description }}
                 </p>
             </div>
         </div>

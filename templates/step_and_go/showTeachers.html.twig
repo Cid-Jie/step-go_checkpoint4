@@ -8,12 +8,12 @@
 
     {% for teacher in danceTeachers %}
     
-        <div class="d-inline-flex m-3 ">
+        <div class="cardTeacher d-inline-flex m-3 ">
             <div class="card-style" style="width: 18rem;">
                 <img class="card-img-top" src="{{ teacher.photo }}" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title text-center">{{ teacher.firstname }} - {{ teacher.lastname }}</h5>
-                    <p class="text-center">{{ teacher.DanceClasses.name }}</p>
+                    <h5 class="card-title text-center">{{ teacher.firstname }} {{ teacher.lastname }}</h5>
+                    <p class="text-center">Professeur de {{ teacher.DanceClasses.name }}</p>
                     <p>{{ teacher.story }}</p>
                 </div>
             </div>
