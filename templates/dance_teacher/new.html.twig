@@ -5,12 +5,14 @@
 
 {% block body %}
 <main class="container">
-    <h1 class="text-center mt-5 mb-5">Create new DanceTeacher</h1>
+
+    <h1 class="text-center mt-5 mb-5">Entrer un nouveau professeur</h1>
 
     {{ include('dance_teacher/_form.html.twig') }}
 
-    <p class="text-center mt-5 mb-5">
-        <a href="{{ path('app_dance_teacher_index') }}">back to list</a>
+    <p class="mt-5 mb-5">
+        <a href="{{ path('app_dance_teacher_index') }}">Retour à la liste des professeurs</a>
     </p>
+
 </main>
 {% endblock %}
