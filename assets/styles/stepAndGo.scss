@@ -49,9 +49,11 @@ p {
 }
 
 //Dance Teachers
-.cardDance {
+.cardTeacher {
     width: auto;
-    height: 600px;
+    height: 560px;
+    display: flex;
+    text-align: justify;
 }
 
 .card-img-top {
@@ -62,6 +64,11 @@ p {
 h5 {
     font-family: $title-font;
     font-weight: bold;
+}
+
+p {
+    vertical-align: middle;
+    line-height: normal;
 }
 
 .button-action-card {
