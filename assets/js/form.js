@@ -1,4 +1,4 @@
-if (document.getElementById('button-save-user')) {
+if (document.querySelector('.button-save-message')) {
 
     const buttonActionForm = document.querySelector('.button-save-message');
     buttonActionForm.setAttribute('disabled', 'disabled');
@@ -13,15 +13,13 @@ if (document.getElementById('button-save-user')) {
         if (inputEmailValue === "") {
             buttonActionForm.removeAttribute('disabled', 'disabled');
             buttonActionForm.addEventListener('click', () => {
-                alert('Votre message a bien été envoyé');
-                document.location.href="/";
+                alert('Votre message a bien été envoyé, nous vous répondrons très vite.');
             });
 
         } else {
             buttonActionForm.setAttribute('disabled', 'disabled');
         }
     }
-
 }
 
 

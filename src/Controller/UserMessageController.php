@@ -31,7 +31,7 @@ class UserMessageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $userMessageRepository->add($userMessage, true);
 
-            //return $this->redirectToRoute('app_step_and_go', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_step_and_go', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('user_message/new.html.twig', [
