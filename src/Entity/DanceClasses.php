@@ -28,9 +28,13 @@ class DanceClasses
     #[ORM\Column(length: 255)]
     private ?string $poster = null;
 
+    #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: UserMessage::class)]
+    private Collection $userMessages;
+
     public function __construct()
     {
         $this->danceTeachers = new ArrayCollection();
+        $this->userMessages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -100,6 +104,36 @@ class DanceClasses
     public function setPoster(string $poster): self
     {
         $this->poster = $poster;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, UserMessage>
+     */
+    public function getUserMessages(): Collection
+    {
+        return $this->userMessages;
+    }
+
+    public function addUserMessage(UserMessage $userMessage): self
+    {
+        if (!$this->userMessages->contains($userMessage)) {
+            $this->userMessages[] = $userMessage;
+            $userMessage->setDanceClasses($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserMessage(UserMessage $userMessage): self
+    {
+        if ($this->userMessages->removeElement($userMessage)) {
+            // set the owning side to null (unless already changed)
+            if ($userMessage->getDanceClasses() === $this) {
+                $userMessage->setDanceClasses(null);
+            }
+        }
 
         return $this;
     }
