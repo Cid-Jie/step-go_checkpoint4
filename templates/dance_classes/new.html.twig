@@ -1,13 +1,18 @@
 {% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
 
 {% block title %}New DanceClasses{% endblock %}
 
 {% block body %}
-    <h1 class="text-center mt-5 mb-5">Create new DanceClasses</h1>
+<main class="container">
+
+    <h1 class="text-center mt-5 mb-5">Créer un nouveau cours de danse</h1>
 
     {{ include('dance_classes/_form.html.twig') }}
-
-    <p class="text-center mt-5 mb-5">
-        <a href="{{ path('app_dance_classes_index') }}">back to list</a>
+    
+    <p class="mt-5 mb-5">
+        <a href="{{ path('app_dance_classes_index') }}">Retour à la liste des cours</a>
     </p>
+
+</main>
 {% endblock %}

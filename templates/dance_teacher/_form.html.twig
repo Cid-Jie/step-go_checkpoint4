@@ -1,4 +1,5 @@
 {{ form_start(form) }}
+<div class="message-form-content ">
     <p class="my-custom-class-for-errors">
     {{ form_errors(form) }}
     </p>
@@ -35,4 +36,5 @@
     <p class="text-center mt-5 mb-5">
         <button class="btn">{{ button_label|default('Save') }}</button>
     </p>
+</div>
 {{ form_end(form) }}

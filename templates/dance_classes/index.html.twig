@@ -7,7 +7,7 @@
 
     <h1 class="text-center mt-5 mb-5">Cours de danse</h1>
 
-    <a href="{{ path('app_dance_classes_new') }}">Create new</a>
+    <a href="{{ path('app_dance_classes_new') }}">Nouveau cours</a>
     
     <table class="table">
         <thead>
@@ -25,8 +25,8 @@
                 <td>{{ dance_class.name }}</td>
                 <td>{{ dance_class.description|striptags|slice(0,60) }}</td>
                 <td>
-                    <a href="{{ path('app_dance_classes_show', {'id': dance_class.id}) }}">show</a>
-                    <a href="{{ path('app_dance_classes_edit', {'id': dance_class.id}) }}">edit</a>
+                    <a href="{{ path('app_dance_classes_show', {'id': dance_class.id}) }}">Voir</a>
+                    <a href="{{ path('app_dance_classes_edit', {'id': dance_class.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}

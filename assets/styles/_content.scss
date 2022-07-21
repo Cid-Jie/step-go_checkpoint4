@@ -1,12 +1,12 @@
 @import "_var.scss";
 
 .message-form-content {
-    width: 90%;
+    width: 30%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.button-save-message, .button-delete-message {
+.button-save-message, .btn {
     padding: 10px;
     color: $primary-white;
     background-color: $primary-pink;
@@ -16,8 +16,18 @@
     font-size: 18px;
 }
 
-@media screen and (min-width: 768px) {
+.button-delete-message {
+    padding: 10px;
+    color: $color-danger;
+    background-color: $primary-pink;
+    border-radius: 10px;
+    font-family: $title-font;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
     .message-form-content {
-        width: 30%;
+        width: 90%;
     }
 }

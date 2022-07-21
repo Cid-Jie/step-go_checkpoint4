@@ -1,7 +1,7 @@
 @import "_var.scss";
 
 .login-container {
-    width: 90%;
+    width: 30%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -16,8 +16,8 @@
     font-size: 18px;
 }
 
-@media screen and (min-width: 768px){
+@media screen and (max-width: 768px){
     .login-container  {
-        width: 30%;
+        width: 90%;
     }
 }
