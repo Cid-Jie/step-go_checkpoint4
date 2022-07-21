@@ -1,27 +1,43 @@
+if (document.getElementById('button-save-message')) {
 
-
-//function to open the modal
 const buttonActionForm = document.getElementById('button-save-message');
-buttonActionForm.addEventListener('click', () => {
-    const modalContainer = document.querySelector('.modal-container');
-    const modalTriggers = document.querySelectorAll('.modal-trigger');
-    modalTriggers.forEach(trigger => trigger.addEventListener('click', toggleModal))
+//buttonActionForm.setAttribute('disabled', 'disabled');
 
-    function toggleModal() {
-        modalContainer.classList.add('active')
+const inputEmail = document.querySelector('.input-email');
+const inputEmailValue = document.querySelector('.input-email').value;
+
+function stateHandle() {
+    if (inputEmailValue === "") {
+        buttonActionForm.removeAttribute('disabled', 'disabled');
+    } else {
+        buttonActionForm.setAttribute('disabled', 'disabled');
     }
-});
+}
 
-//function to close the modal
-const buttonCloseModal = document.getElementById('close-modal');
-buttonCloseModal.addEventListener('click', () => {
-    const modalContainer = document.querySelector('.modal-container');
-    const modalTriggers = document.querySelectorAll('.modal-trigger');
-    modalTriggers.forEach(trigger => trigger.addEventListener('click', toggleModal))
+inputEmail.addEventListener("change", stateHandle);
 
-    function toggleModal() {
-        modalContainer.classList.remove('active');
-        document.location.href="/"; 
-    }
-    
-});
+const buttonActionModal = document.getElementById('button-save-message');
+if (buttonActionForm.disabled = false) {
+    //Function to open the modal
+    buttonActionModal.addEventListener('click', () => {
+        const modalContainer = document.querySelector('.modal-container');
+        const modalTriggers = document.querySelectorAll('.modal-trigger');
+        modalTriggers.forEach(trigger => trigger.addEventListener('click', toggleModal))
+
+        function toggleModal() {
+            modalContainer.classList.add('active');
+        }
+    });
+
+    //Function to redirect after close the modal
+    const buttonCloseModal = document.getElementById('close-modal');
+    buttonCloseModal.addEventListener('click', () => {
+        document.location.href="/";
+    });
+}
+
+}
+
+
+
+

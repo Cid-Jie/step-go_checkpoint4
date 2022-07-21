@@ -17,13 +17,22 @@ class UserMessageType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-                'label' => 'Prénom : '
+                'label' => 'Prénom : ',
+                'attr' => array(
+                    'class' => 'input-name'
+                )
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Nom : '
+                'label' => 'Nom : ',
+                'attr' => array(
+                    'class' => 'input-lastname'
+                )
             ])
             ->add('email', TextType::class, [
-                'label' => 'Email : '
+                'label' => 'Email : ',
+                'attr' => array(
+                    'class' => 'input-email'
+                )
             ])
             ->add('reason', ChoiceType::class, [
                 'label' => 'Raison du contact : ',
@@ -40,7 +49,10 @@ class UserMessageType extends AbstractType
                 'label' => 'Cours de danse concerné : ',
             ])
             ->add('message', TextareaType::class, [
-                'label' => 'Votre message : '
+                'label' => 'Votre message : ',
+                'attr' => array(
+                    'class' => 'input-message'
+                )
             ])
         ;
     }

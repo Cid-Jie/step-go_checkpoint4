@@ -1,46 +1,35 @@
 {{ form_start(form) }}
 <div class="message-form-content ">
-    <p class="my-custom-class-for-errors">
+    <div class="my-custom-class-for-errors">
     {{ form_errors(form) }}
-    </p>
-    <p class="text-center">
+    </div>
+    <div class="text-center mb-3">
         {{ form_label(form.firstname) }}
-    </p>
-    <p class="text-center">
         {{ form_widget(form.firstname) }}
-    </p>
-    <p class="text-center">
+    </div>
+    <div class="text-center mb-3">
         {{ form_label(form.lastname) }}
-    </p>
-    <p class="text-center">
         {{ form_widget(form.lastname) }}
-    </p>
-    <p class="text-center">
+    </div>
+    <div class="text-center mb-3">
         {{ form_label(form.email) }}
-    </p>
-    <p class="text-center">
         {{ form_widget(form.email) }}
-    </p>
-    <p class="text-center">
+    </div>
+    <div class="text-center mb-3">
         {{ form_label(form.reason) }}
-    </p>
-    <p class="text-center">
         {{ form_widget(form.reason) }}
-    </p>
-    <p class="text-center">
+    </div>
+    <div class="text-center mb-3">
         {{ form_label(form.danceClasses) }}
-    </p>
-    <p class="text-center">
         {{ form_widget(form.danceClasses) }}
-    </p>
-    <p class="text-center">
+    </div>
+    <div class="text-center mb-3">
         {{ form_label(form.message) }}
-    </p>
-    <p class="text-center">
         {{ form_widget(form.message) }}
-    </p>
-    <p class="text-center mb-5">
-         <button class="button-save-message modal-trigger" id="button-save-message">{{ button_label|default('Envoyer') }}</button>
-    </p>
+    </div>
+
+    <div class="text-center mb-5">
+         <button class="button-save-message modal-trigger" id="button-save-message" disabled="disabled">{{ button_label|default('Envoyer') }}</button>
+    </div>
 </div>
 {{ form_end(form) }}
