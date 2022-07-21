@@ -3,14 +3,11 @@
 {% block title %}UserMessage{% endblock %}
 
 {% block body %}
-    <h1>UserMessage</h1>
+<main class="container">
+    <h1 class="text-center mt-5 mb-5">Message</h1>
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ user_message.id }}</td>
-            </tr>
             <tr>
                 <th>Firstname</th>
                 <td>{{ user_message.firstname }}</td>
@@ -31,12 +28,15 @@
                 <th>Message</th>
                 <td>{{ user_message.message }}</td>
             </tr>
+            <tr>
+                <th>Message</th>
+            <td>{{ user_message.danceClasses.name }}</td>
+            </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_user_message_index') }}">back to list</a>
-
-    <a href="{{ path('app_user_message_edit', {'id': user_message.id}) }}">edit</a>
+    <a href="{{ path('app_user_message_index') }}">Retour à la liste des messages</a>
 
     {{ include('user_message/_delete_form.html.twig') }}
+</main>
 {% endblock %}

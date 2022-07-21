@@ -15,6 +15,5 @@ import './bootstrap';
 require('bootstrap');
 
 //import js files
-import './js/card.js';
 import './js/form.js';
 

@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
 
 {% block title %}New UserMessage{% endblock %}
 
 {% block body %}
-    <h1>Create new UserMessage</h1>
+    <h1 class="text-center mt-5 mb-5">Nous contacter</h1>
 
     {{ include('user_message/_form.html.twig') }}
 
-    <a href="{{ path('app_user_message_index') }}">back to list</a>
 {% endblock %}

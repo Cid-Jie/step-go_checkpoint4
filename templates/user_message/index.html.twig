@@ -3,12 +3,12 @@
 {% block title %}UserMessage index{% endblock %}
 
 {% block body %}
-    <h1>UserMessage index</h1>
+<main class="container">
+    <h1 class="text-center mt-5 mb-5">Message des internautes</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Firstname</th>
                 <th>Lastname</th>
                 <th>Email</th>
@@ -20,16 +20,14 @@
         <tbody>
         {% for user_message in user_messages %}
             <tr>
-                <td>{{ user_message.id }}</td>
                 <td>{{ user_message.firstname }}</td>
                 <td>{{ user_message.lastname }}</td>
                 <td>{{ user_message.email }}</td>
                 <td>{{ user_message.reason }}</td>
                 <td>{{ user_message.message }}</td>
                 <td>
-                    <a href="{{ path('app_user_message_show', {'id': user_message.id}) }}">show</a>
-                    <a href="{{ path('app_user_message_edit', {'id': user_message.id}) }}">edit</a>
-                </td>
+                    <a href="{{ path('app_user_message_show', {'id': user_message.id}) }}">Voir</a>
+                </td>  
             </tr>
         {% else %}
             <tr>
@@ -38,6 +36,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_user_message_new') }}">Create new</a>
+</main>
 {% endblock %}

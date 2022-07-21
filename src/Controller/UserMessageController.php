@@ -31,7 +31,7 @@ class UserMessageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $userMessageRepository->add($userMessage, true);
 
-            return $this->redirectToRoute('app_user_message_index', [], Response::HTTP_SEE_OTHER);
+            //return $this->redirectToRoute('app_step_and_go', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('user_message/new.html.twig', [
@@ -45,24 +45,6 @@ class UserMessageController extends AbstractController
     {
         return $this->render('user_message/show.html.twig', [
             'user_message' => $userMessage,
-        ]);
-    }
-
-    #[Route('/{id}/edit', name: 'app_user_message_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, UserMessage $userMessage, UserMessageRepository $userMessageRepository): Response
-    {
-        $form = $this->createForm(UserMessageType::class, $userMessage);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $userMessageRepository->add($userMessage, true);
-
-            return $this->redirectToRoute('app_user_message_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('user_message/edit.html.twig', [
-            'user_message' => $userMessage,
-            'form' => $form,
         ]);
     }
 
