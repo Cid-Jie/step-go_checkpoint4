@@ -1,43 +1,28 @@
-if (document.getElementById('button-save-message')) {
+if (document.getElementById('button-save-user')) {
 
-const buttonActionForm = document.getElementById('button-save-message');
-//buttonActionForm.setAttribute('disabled', 'disabled');
+    const buttonActionForm = document.querySelector('.button-save-message');
+    buttonActionForm.setAttribute('disabled', 'disabled');
 
-const inputEmail = document.querySelector('.input-email');
-const inputEmailValue = document.querySelector('.input-email').value;
+    const inputEmail = document.querySelector('.input-email');
+    const inputEmailValue = document.querySelector('.input-email').value;
 
-function stateHandle() {
-    if (inputEmailValue === "") {
-        buttonActionForm.removeAttribute('disabled', 'disabled');
-    } else {
-        buttonActionForm.setAttribute('disabled', 'disabled');
-    }
-}
+    inputEmail.addEventListener("change", stateHandle);
 
-inputEmail.addEventListener("change", stateHandle);
+    function stateHandle() {
+        const buttonActionForm = document.querySelector('.button-save-message');
+        if (inputEmailValue === "") {
+            buttonActionForm.removeAttribute('disabled', 'disabled');
+            buttonActionForm.addEventListener('click', () => {
+                alert('Votre message a bien été envoyé');
+                document.location.href="/";
+            });
 
-const buttonActionModal = document.getElementById('button-save-message');
-if (buttonActionForm.disabled = false) {
-    //Function to open the modal
-    buttonActionModal.addEventListener('click', () => {
-        const modalContainer = document.querySelector('.modal-container');
-        const modalTriggers = document.querySelectorAll('.modal-trigger');
-        modalTriggers.forEach(trigger => trigger.addEventListener('click', toggleModal))
-
-        function toggleModal() {
-            modalContainer.classList.add('active');
+        } else {
+            buttonActionForm.setAttribute('disabled', 'disabled');
         }
-    });
-
-    //Function to redirect after close the modal
-    const buttonCloseModal = document.getElementById('close-modal');
-    buttonCloseModal.addEventListener('click', () => {
-        document.location.href="/";
-    });
-}
+    }
 
 }
-
 
 
 
