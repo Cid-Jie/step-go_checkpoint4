@@ -5,60 +5,15 @@
 
 {% block body %}
 
-<main class="container">
+<main class="container">   
 
-        <h1 class="text-center mt-5">Formulaire de pré-inscription</h1>
+    <h1 class="text-center mt-5">Informations utiles</h1>
 
-    <div class="form-content">
-        <form action="" method="post">
-            <div class="mt-5 mb-2">
-                <label for="last_name" class="form-label">Nom *</label></br>
-                <input id="lastname" class="form-control" type="text" name="lastname" pattern="^\D*$" required>
-            </div>
-        
-            <div class="mb-2">
-                <label for="first_name" class="form-label">Prénom *</label></br>
-                <input id="firstname" class="form-control" type="text" name="firstname" pattern="^\D*$" required>
-            </div>
-        
-            <div class="mb-2">
-                <label for="email" class="form-label">Email *</label></br>
-                <input id="email" class="form-control" type="email" placeholder="@examplecom" name="email" required>
-            </div>
-
-            <div class="mb-2">
-                <label for="dance" class="form-label">Choisir un cours de danse *</label></br>
-                <select id="dance_classes" class="form-control text-center" name="dance" required>
-                    <option disabled selected value> -- Choisir un cours de danse -- </option>
-                    {% for dance in danceClasses %}
-                        <option value="{{ dance.name }}">{{ dance.name }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-
-            <div class="mb-2">
-                <label for="choice" class="form-label">Raison du contact *</label></br>
-                <select id="choice" class="form-control text-center" name="choice" required>
-                    <option disabled selected value> -- Choisir parmi les propositions -- </option>
-                        <option value="incription">Incription</option>
-                        <option value="renseignement">Renseignement</option>
-                        <option value="financement">Financement</option>
-                        <option value="autre_choix">Autre choix</option>
-                </select>
-            </div>
-        
-            <div class="mb-2">
-                <label for="message" class="form-label">Vous souhaitez-nous transmettre un message?</label></br>
-                <textarea id="message" class="form-control text-center" name="message"></textarea>
-            </div>
-        
-            <div class="text-center mb-2">
-                <button type="submit" id="actionForm">Envoyer</button>
-            </div>
-        </form>
+    <div class="text-center mt-5 mb-5">
+        <button class="button-form-contact">
+            <a href="{{ path('app_user_message_new') }}">Nous contacter</a>
+        </button>
     </div>
-
-    <h1 class="text-center mt-5">Informations</h1>
 
     <div class="text-center mt-5 mb-5">
         <p>Horraires : Du lundi au vendredi : de 17h à 22h30</p>

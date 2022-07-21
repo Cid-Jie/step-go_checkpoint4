@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserMessage index{% endblock %}
+
+{% block body %}
+    <h1>UserMessage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Reason</th>
+                <th>Message</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user_message in user_messages %}
+            <tr>
+                <td>{{ user_message.id }}</td>
+                <td>{{ user_message.firstname }}</td>
+                <td>{{ user_message.lastname }}</td>
+                <td>{{ user_message.email }}</td>
+                <td>{{ user_message.reason }}</td>
+                <td>{{ user_message.message }}</td>
+                <td>
+                    <a href="{{ path('app_user_message_show', {'id': user_message.id}) }}">show</a>
+                    <a href="{{ path('app_user_message_edit', {'id': user_message.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_user_message_new') }}">Create new</a>
+{% endblock %}

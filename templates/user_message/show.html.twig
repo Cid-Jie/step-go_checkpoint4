@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserMessage{% endblock %}
+
+{% block body %}
+    <h1>UserMessage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user_message.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ user_message.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ user_message.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user_message.email }}</td>
+            </tr>
+            <tr>
+                <th>Reason</th>
+                <td>{{ user_message.reason }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ user_message.message }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_user_message_index') }}">back to list</a>
+
+    <a href="{{ path('app_user_message_edit', {'id': user_message.id}) }}">edit</a>
+
+    {{ include('user_message/_delete_form.html.twig') }}
+{% endblock %}

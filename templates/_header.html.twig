@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-md">
 	<div class="container-fluid">
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"><img src="{{ asset('build/images/menu.png') }}" alt="Ballerine login" width="40px"></span>
+			<span class="navbar-toggler-icon"><p class="image-burger"><img src="{{ asset('build/images/menu.png') }}" alt="Ballerine login" width="40px"></p></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 			<ul class="navbar-nav">
@@ -34,6 +34,9 @@
 						</li>
 						<li>
 							<a class="dropdown-item" href="{{ path('app_dance_teacher_index') }}">Les professeurs</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ path('app_user_message_index') }}">Messages</a>
 						</li>
 						<li>
 							<a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>

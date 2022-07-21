@@ -15,7 +15,7 @@ class DanceTeacherFixtures extends Fixture
         'story' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
         'dance_classes_id' => 'Modern\' Jazz'
         ],
-        ['firstname' => 'Jane',
+        ['firstname' => 'Helen',
         'lastname' => 'Doe',
         'photo' => 'https://i.pravatar.cc/300',
         'story' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
@@ -33,8 +33,8 @@ class DanceTeacherFixtures extends Fixture
         'story' => 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing',
         'dance_classes_id' => 'Danse africaine',
         ],
-        ['firstname' => 'Bessie',
-        'lastname' => 'Cooper',
+        ['firstname' => 'Jean',
+        'lastname' => 'Dupont',
         'photo' => 'https://i.pravatar.cc/302',
         'story' => 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing',
         'dance_classes_id' =>  'Zumba'

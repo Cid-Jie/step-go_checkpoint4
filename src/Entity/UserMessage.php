@@ -26,7 +26,7 @@ class UserMessage
     #[ORM\Column(length: 255)]
     private ?string $reason = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $message = null;
 
     #[ORM\ManyToOne(inversedBy: 'userMessages')]
