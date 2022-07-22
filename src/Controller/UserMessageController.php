@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\UserMessage;
 use App\Form\UserMessageType;
 use App\Repository\UserMessageRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,6 +41,7 @@ class UserMessageController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{id}', name: 'app_user_message_show', methods: ['GET'])]
     public function show(UserMessage $userMessage): Response
     {
@@ -48,6 +50,7 @@ class UserMessageController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{id}', name: 'app_user_message_delete', methods: ['POST'])]
     public function delete(Request $request, UserMessage $userMessage, UserMessageRepository $userMessageRepository): Response
     {

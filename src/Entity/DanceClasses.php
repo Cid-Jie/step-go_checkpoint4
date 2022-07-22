@@ -7,8 +7,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: DanceClassesRepository::class)]
+#[UniqueEntity(
+    fields: 'name',
+    message: 'Cette catégorie existe déjà.'
+)]
 class DanceClasses
 {
     #[ORM\Id]
@@ -17,15 +23,25 @@ class DanceClasses
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Merci de remplir ce champ.')]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: "Le nom {{ value }} est trop long et ne doit pas dépasser {{ limit }} caractères."
+    )]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: 'Merci de remplir ce champ.')]
     private ?string $description = null;
 
     #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: DanceTeacher::class)]
     private Collection $danceTeachers;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Veuillez insérer une image pour cette danse.')]
+    #[Assert\Url(
+        message: 'L\'url {{ value }} n\'est pas une url valide.' 
+    )]
     private ?string $poster = null;
 
     #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: UserMessage::class)]

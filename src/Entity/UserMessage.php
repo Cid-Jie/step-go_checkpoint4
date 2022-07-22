@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\UserMessageRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserMessageRepository::class)]
 class UserMessage
@@ -15,18 +16,33 @@ class UserMessage
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Merci de remplir ce champ.')]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: "Le prénom {{ value }} est trop long et ne doit pas dépasser {{ limit }} caractères."
+    )]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Merci de remplir ce champ.')]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: "Le nom {{ value }} est trop long et ne doit pas dépasser {{ limit }} caractères."
+    )]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Merci de remplir ce champ.')]
+    #[Assert\Email(
+        message: 'Cet email {{ value }} n\'est pas une adresse valide.',
+    )]
     private ?string $email = null;
 
     #[ORM\Column(length: 255)]
     private ?string $reason = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: 'Merci de remplir ce champ.')]
     private ?string $message = null;
 
     #[ORM\ManyToOne(inversedBy: 'userMessages')]

@@ -5,8 +5,14 @@ namespace App\Entity;
 use App\Repository\DanceTeacherRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: DanceTeacherRepository::class)]
+#[UniqueEntity(
+    fields: ['lastname', 'firstname'],
+    message: 'Ce professeur existe déjà.'
+)]
 class DanceTeacher
 {
     #[ORM\Id]
@@ -15,18 +21,33 @@ class DanceTeacher
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Merci de remplir ce champ.')]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: "Le prénom {{ value }} est trop long et ne doit pas dépasser {{ limit }} caractères."
+    )]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Merci de remplir ce champ.')]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: "Le nom {{ value }} est trop long et ne doit pas dépasser {{ limit }} caractères."
+    )]
     private ?string $lastname = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: 'Merci de remplir ce champ.')]
     private ?string $story = null;
 
     #[ORM\ManyToOne(inversedBy: 'danceTeachers')]
     private ?DanceClasses $danceClasses = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Veuillez insérer une image pour cette danse.')]
+    #[Assert\Url(
+        message: 'L\'image {{ value }} n\'est pas une url valide.' 
+    )]
     private ?string $photo = null;
 
     public function getId(): ?int

@@ -1,4 +1,27 @@
 if (document.querySelector('.button-save-message')) {
+/* 
+    <form name='tip' method='post' action='tip.php'>
+        Tip somebody: 
+        <input name="tip_email" type="text" size="30" onfocus="tip_div(1);" onblur="tip_div(2);"/>
+        <input type="submit" value="Skicka Tips"/>
+        <input type="hidden" name="ad_id" />
+    </form>
+
+ */
+    $('#submit').click(function() {
+        $.ajax({
+            url: 'send_email.php',
+            type: 'POST',
+            data: {
+                email: 'email@example.com',
+                message: 'hello world!'
+            },
+            success: function(msg) {
+                alert('Email Sent');
+            }               
+        });
+    });
+    
 
     const buttonActionForm = document.querySelector('.button-save-message');
     buttonActionForm.setAttribute('disabled', 'disabled');
@@ -13,12 +36,13 @@ if (document.querySelector('.button-save-message')) {
         if (inputEmailValue === "") {
             buttonActionForm.removeAttribute('disabled', 'disabled');
             buttonActionForm.addEventListener('click', (e) => {
-                //e.preventDefault();
-                /* customBox.innerHTML = '<p>Merci pour votre message, nous vous répondrons très vite.</p>';
-                customBox.innerHTML += '<button id="modal-close">OK</button>';
+                
+                customBox.innerHTML = '<p>Merci pour votre message, nous vous répondrons très vite.</p>';
+                customBox.innerHTML += '<button type="submit" id="modal-close">OK</button>';
                 modalShow();
-                return false; */
-                alert('Votre message a bien été envoyé, nous vous répondrons très vite.');
+                e.preventDefault();
+                //return false;
+                //alert('Votre message a bien été envoyé, nous vous répondrons très vite.');
             });
 
         } else {
@@ -26,7 +50,7 @@ if (document.querySelector('.button-save-message')) {
         }
     }
 
-/*     var modalContainer = document.createElement('div');
+    var modalContainer = document.createElement('div');
     modalContainer.setAttribute('id', 'modal');
 
     var customBox = document.createElement('div');
@@ -40,7 +64,7 @@ if (document.querySelector('.button-save-message')) {
             modalClose();
         });
 
-        if (document.getElementById('modal-confirm')) {
+/*         if (document.getElementById('modal-confirm')) {
             document.getElementById('modal-confirm').addEventListener('click', function () {
             console.log('Confirmé !');
             modalClose();
@@ -50,7 +74,7 @@ if (document.querySelector('.button-save-message')) {
                 console.log(document.getElementById('modal-prompt').value);
                 modalClose();
             });
-        }
+        } */
     }
 
     function modalClose() {
@@ -58,9 +82,10 @@ if (document.querySelector('.button-save-message')) {
             modalContainer.removeChild(modalContainer.firstChild);
         }
         document.body.removeChild(modalContainer);
-        document.location.href = "/";
+        //window.location.reload(true);
+        document.location.href ="/";
 
-    }  */
+    } 
 }
 
 

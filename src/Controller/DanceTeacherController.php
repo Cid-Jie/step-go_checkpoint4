@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\DanceTeacher;
 use App\Form\DanceTeacherType;
 use App\Repository\DanceTeacherRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/dance/teacher')]
 class DanceTeacherController extends AbstractController
 {
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/', name: 'app_dance_teacher_index', methods: ['GET'])]
     public function index(DanceTeacherRepository $danceTeacherRepository): Response
     {
@@ -21,6 +23,7 @@ class DanceTeacherController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/new', name: 'app_dance_teacher_new', methods: ['GET', 'POST'])]
     public function new(Request $request, DanceTeacherRepository $danceTeacherRepository): Response
     {
@@ -40,6 +43,7 @@ class DanceTeacherController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{id}', name: 'app_dance_teacher_show', methods: ['GET'])]
     public function show(DanceTeacher $danceTeacher): Response
     {
@@ -48,6 +52,7 @@ class DanceTeacherController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{id}/edit', name: 'app_dance_teacher_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, DanceTeacher $danceTeacher, DanceTeacherRepository $danceTeacherRepository): Response
     {
@@ -66,6 +71,7 @@ class DanceTeacherController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{id}', name: 'app_dance_teacher_delete', methods: ['POST'])]
     public function delete(Request $request, DanceTeacher $danceTeacher, DanceTeacherRepository $danceTeacherRepository): Response
     {
