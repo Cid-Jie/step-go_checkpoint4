@@ -2,8 +2,8 @@
 const carousel = [
     {
         picture: "https://cdn.pixabay.com/photo/2016/07/07/12/48/reload-crew-1502408_960_720.jpg",
-        alt: "Promotion 2021-2022",
-        title: "Promotion 2021-2022"
+        alt: "Elèves",
+        title: "Elèves"
     },
     {
         picture: "https://images.pexels.com/photos/12312/pexels-photo-12312.jpeg",
@@ -16,38 +16,38 @@ const carousel = [
         title: "Salle de danse"
     },
     {
-        picture: "https://cdn.pixabay.com/photo/2020/05/15/15/22/dance-5173943_960_720.jpg",
-        alt: "Photo spectacle 2022",
-        title: "Spectacle de fin d'année 2022"
-    },
-    {
-        picture: "https://cdn.pixabay.com/photo/2019/12/29/18/40/dance-4727835_960_720.jpg",
-        alt: "Photo spectacle 2022",
-        title: "Spectacle de fin d'année 2022"
-    },
-    {
-        picture: "https://cdn.pixabay.com/photo/2015/01/14/20/31/indian-dance-599611_960_720.jpg",
-        alt: "Photo spectacle 2022",
-        title: "Spectacle de fin d'année 2022"
-    },
-    {
         picture: "https://cdn.pixabay.com/photo/2020/10/10/21/54/performers-5644247_960_720.jpg",
-        alt: "Photo spectacle 2022",
-        title: "Spectacle de fin d'année 2022"
-    },
-    {
-        picture: "https://images.pexels.com/photos/209948/pexels-photo-209948.jpeg",
-        alt: "Photo spectacle 2022'",
+        alt: "Spectacle de fin d'année 2022 : Lumière",
         title: "Spectacle de fin d'année 2022"
     },
     {
         picture: "https://images.pexels.com/photos/3753820/pexels-photo-3753820.jpeg",
-        alt: "Photo spectacle 2022",
+        alt: "Spectacle de fin d'année 2022 : Groupe de danseuses",
+        title: "Spectacle de fin d'année 2022"
+    },
+    {
+        picture: "https://images.pexels.com/photos/209948/pexels-photo-209948.jpeg",
+        alt: "Spectacle de fin d'année 2022 : Trois danseuses",
+        title: "Spectacle de fin d'année 2022"
+    },
+    {
+        picture: "https://cdn.pixabay.com/photo/2015/01/14/20/31/indian-dance-599611_960_720.jpg",
+        alt: "Spectacle de fin d'année 2022 : Danse bollywood",
+        title: "Spectacle de fin d'année 2022"
+    },
+    {
+        picture: "https://cdn.pixabay.com/photo/2019/12/29/18/40/dance-4727835_960_720.jpg",
+        alt: "Spectacle de fin d'année 2022 : Danse Jazz",
+        title: "Spectacle de fin d'année 2022"
+    },
+    {
+        picture: "https://cdn.pixabay.com/photo/2020/05/15/15/22/dance-5173943_960_720.jpg",
+        alt: "Spectacle de fin d'année 2022 : Danse africaine",
         title: "Spectacle de fin d'année 2022"
     },
     {
         picture: "https://cdn.pixabay.com/photo/2020/06/20/16/32/dance-5321562_960_720.jpg",
-        alt: "Photo spectacle 2022",
+        alt: "Spectacle de fin d'année 2022 : Danse Modern Jazz",
         title: "Spectacle de fin d'année 2022"
     },
 ];
