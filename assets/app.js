@@ -16,4 +16,5 @@ require('bootstrap');
 
 //import js files
 import './js/form.js';
+import './js/carousel.js';
 

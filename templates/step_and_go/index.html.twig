@@ -4,17 +4,23 @@
 
 
 {% block body %}
+<div>
+    <img id="photo-accueil" class="img-responsive" src="{{ asset('build/images/girl.jpg') }}" alt="Photo de danse">
+</div>
 
-<img class="photo-accueil" src="{{ asset('build/images/girl.jpg') }}" alt="Photo de danse">
+<p class="content mt-5 mb-5">
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</p>
 
-<main class="container">
+<div class="carousel mb-5">
 
-    <h1 class="text-center mt-5 mb-5">L'école Step&Go</h1>
-   
-    <p class="content mt-5 mb-5">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-    </p>
+    <div id="container-carousel">
+        <img class="photo-carousel img-responsive" src="{{ asset('build/images/promo.jpg') }}" alt="Photo de l'école" class="photo-carousel">
+        <p class="carousel-title">Promotion 2021-2022</p>
+        <img src="{{ asset('build/images/bouton.png') }}" class="bouton" id="rightButton" alt="bouton droite du carroussel"/>
+        <img src="{{ asset('build/images/bouton.png') }}" class="bouton" id="leftButton" alt="bouton gauche du carroussel"/>
+    </div>
 
-</main>
+</div>
 
 {% endblock %}
