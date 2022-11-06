@@ -3,4 +3,10 @@
 @import "_login.scss";
 @import "_content.scss";
 
+.body {
+    background-image: url("../images/bg_multicolor.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 

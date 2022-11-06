@@ -10,6 +10,7 @@
     text-align: justify;
     margin-left: 100px;
     margin-right: 100px;
+    color: white;
 }
 
 .carousel {
@@ -105,9 +106,8 @@ p {
     font-size: 14px;
 }
 
-.card-style {
-    border-radius: 10px;
-    box-shadow: 5px 2px 2px $primary-grey;
+.card-body {
+    background-color: $secondary-grey;
 }
 
 //Dance Teachers
@@ -142,9 +142,8 @@ p {
     font-size: 14px;
 }
 
-.card-style {
-    border-radius: 10px;
-    box-shadow: 5px 2px 2px $primary-grey;
+.card-body {
+    background-color: $secondary-grey;
 }
 
 //Planning

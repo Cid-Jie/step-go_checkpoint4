@@ -1,13 +1,16 @@
 @import "_var.scss";
 
-h1 {
+.title {
+    background-color: $primary-white;
+    font-size: 40px;
+    h1 {
     font-family: $title-font;
     font-weight: bold;
-    font-size: 40px;
+    }
 }
 
 .navbar-expand-md {
-    background-color: $primary-pink;
+    background-color: $primary-white;
 }
 
 .navbar-collapse {
@@ -15,14 +18,14 @@ h1 {
 }
 
 a.nav-link {
-    color: $primary-white;
+    color: $primary-dark;
     font-family: $title-font;
     font-weight: bold;
     font-size: 16px;
     position: relative;
     text-decoration: none;
     img {
-        width: 30px;
+        width: 25px;
     }
 }
 a:after {
@@ -34,23 +37,23 @@ a:after {
     left: 0px;
     height: 3px;
     transition: 0.25s cubic-bezier(0.72,-0.01, 0.19, 0.92);
-    background: $primary-white;
+    background: $primary-dark;
 }
 a:hover:after {
     width: 100%;
 }
 
 a.nav-link:hover {
-    color: $primary-white;
+    color: $primary-dark;
 }
 a.nav-link.dropdown-toggle {
-    color: $primary-white;
+    color: $primary-dark;
 }
 
 .nav-item {
     list-style-type: none;
-    padding-left: 30px;
     padding-right: 30px;
+    padding-left: 30px;
 }
 
 .navbar-toggler {
