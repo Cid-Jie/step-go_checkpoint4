@@ -1,5 +1,5 @@
-<div class="title pt-5 pb-5">
-	<h1 class="text-center">Step&Go</h1>
+<div class="title pt-5 pb-2">
+	<h1 class="text-center">Step and Go</h1>
 </div>
 
 <nav class="navbar navbar-expand-md">
@@ -23,33 +23,8 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path('app_dance_contact') }}">Contact</a>
-				</li>	
+				</li>
 			</ul>
-			{% if is_granted('ROLE_ADMIN') %}
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Admin
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<li>
-							<a class="dropdown-item" href="{{ path('app_dance_classes_index') }}">Les cours de danses</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="{{ path('app_dance_teacher_index') }}">Les professeurs</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="{{ path('app_user_message_index') }}">Messages</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
-						</li>
-					</ul>
-				</li>
-			{% else %}
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('app_login') }}"><img src="{{ asset('build/images/ballerine.png') }}" alt="Ballerine login"></a>
-				</li>
-			{% endif %}
 		</div>
 	</div>
 </nav>

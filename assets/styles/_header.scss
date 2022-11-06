@@ -6,6 +6,7 @@
     h1 {
     font-family: $title-font;
     font-weight: bold;
+    font-size: 1.6em;
     }
 }
 
@@ -21,11 +22,11 @@ a.nav-link {
     color: $primary-dark;
     font-family: $title-font;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1.3em;
     position: relative;
     text-decoration: none;
     img {
-        width: 25px;
+        width: 40px;
     }
 }
 a:after {

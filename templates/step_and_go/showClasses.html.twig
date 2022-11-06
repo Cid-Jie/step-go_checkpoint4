@@ -3,11 +3,9 @@
 {% block title %}Les cours de danses{% endblock %}
 
 {% block body %}
-<main class="text-center">
+<main class="container text-center">
 
-    <h1 class="text-center mt-5 mb-5">Cours de danse</h1>
-
-    {% for dance in danceClasses %}
+    {# {% for dance in danceClasses %}
 
     <div class="cardDance d-inline-flex m-5 ">
         <div class="card-style" style="width: 18rem;">
@@ -18,6 +16,18 @@
                     {{ dance.description }}
                 </p>
             </div>
+        </div>
+    </div>
+
+    {% endfor %} #}
+
+    {% for dance in danceClasses %}
+
+    <div>
+        <div>
+            <h1 class="mt-5 mb-5">{{ dance.name }}</h1>
+            <img src="{{ dance.poster  }}" alt="Card image cap" width="60%" height="400px">
+            <p class="mt-2 px-5">{{ dance.description }}</p>
         </div>
     </div>
 

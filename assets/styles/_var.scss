@@ -1,5 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Codystar&family=DM+Sans&family=Outfit:wght@300&display=swap');
 
 $primary-white: #FFFFFF;
 $primary-pink: #F8CACA;
@@ -11,4 +13,5 @@ $secondary-black: #333333d3;
 
 $color-danger: rgb(221, 85, 85);
 
-$title-font: 'Courgette', sans-serif;;
+$title-font: 'Codystar', sans-serif;
+$content-font: 'DM Sans', sans-serif;

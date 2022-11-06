@@ -8,9 +8,10 @@
 
 .content {
     text-align: justify;
-    margin-left: 100px;
-    margin-right: 100px;
-    color: white;
+    margin-left: 200px;
+    margin-right: 200px;
+    color: $primary-white;
+    font-family: $content-font;
 }
 
 .carousel {
@@ -21,8 +22,6 @@
     margin: auto;
     margin-bottom: 30px;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 #container-carousel {
@@ -38,6 +37,7 @@
     margin-top: 20px;
     font-size: 1.01em;
     text-align: center;
+    color: $primary-white;
 }
 
 .bouton{
@@ -147,6 +147,11 @@ p {
 }
 
 //Planning
+#calendar {
+    width: 80%;
+    margin: auto;
+}
+
 .planning-image {
     overflow: auto;
     white-space: nowrap;
