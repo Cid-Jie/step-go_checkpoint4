@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EventCalendar{% endblock %}
+
+{% block body %}
+<main class="container">
+    <h1 class="text-center mt-5 mb-5">Calendrier</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ event_calendar.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ event_calendar.title }}</td>
+            </tr>
+            <tr>
+                <th>Start</th>
+                <td>{{ event_calendar.start ? event_calendar.start|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>End</th>
+                <td>{{ event_calendar.end ? event_calendar.end|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ event_calendar.description }}</td>
+            </tr>
+            <tr>
+                <th>Is_all_day</th>
+                <td>{{ event_calendar.isAllDay ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Background_color</th>
+                <td>{{ event_calendar.backgroundColor }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="text-center mt-5 mb-5">
+        <a href="{{ path('app_event_calendar_edit', {'id': event_calendar.id}) }}">Modifier</a>
+    </p>
+    {{ include('event_calendar/_delete_form.html.twig') }}
+
+    <p class="mt-5 mb-5">
+        <a href="{{ path('app_event_calendar_index') }}">Retour à la liste d'événement</a>
+    </p>
+    
+</main>
+{% endblock %}

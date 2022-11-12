@@ -111,38 +111,14 @@
     </div>
   </section>
   <!-- Section: Links  -->
+  
+  
+  <a href="{{ path('app_login') }}"><img src="{{ asset('build/images/dancer_logo.png') }}" alt="Ballerine login" width="30px"></a>
 
-  {% if is_granted('ROLE_ADMIN') %}
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Admin
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<li>
-							<a class="dropdown-item" href="{{ path('app_dance_classes_index') }}">Les cours de danses</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="{{ path('app_dance_teacher_index') }}">Les professeurs</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="{{ path('app_user_message_index') }}">Messages</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
-						</li>
-					</ul>
-				</li>
-			{% else %}
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('app_login') }}"><img src="{{ asset('build/images/dancer_logo.png') }}" alt="Ballerine login"></a>
-				</li>
-			{% endif %}
 
-  <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
     © 2021 Copyright:
     <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
   </div>
-  <!-- Copyright -->
+
 </footer>
-<!-- Footer -->

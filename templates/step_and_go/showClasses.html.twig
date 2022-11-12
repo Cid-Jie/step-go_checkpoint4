@@ -5,7 +5,7 @@
 {% block body %}
 <main class="container text-center">
 
-    {# {% for dance in danceClasses %}
+    {% for dance in danceClasses %}
 
     <div class="cardDance d-inline-flex m-5 ">
         <div class="card-style" style="width: 18rem;">
@@ -19,9 +19,9 @@
         </div>
     </div>
 
-    {% endfor %} #}
+    {% endfor %}
 
-    {% for dance in danceClasses %}
+    {# {% for dance in danceClasses %}
 
     <div>
         <div>
@@ -31,7 +31,7 @@
         </div>
     </div>
 
-    {% endfor %}
+    {% endfor %} #}
 
 {#     {% for dance in danceClasses %}
     <div class="modal-container-{{ dance.name }}" id="modal-container">

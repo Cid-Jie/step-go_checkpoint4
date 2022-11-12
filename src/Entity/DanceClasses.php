@@ -47,6 +47,9 @@ class DanceClasses
     #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: UserMessage::class)]
     private Collection $userMessages;
 
+    #[ORM\ManyToOne(inversedBy: 'danceClasses')]
+    private ?EventCalendar $eventCalendar = null;
+
     public function __construct()
     {
         $this->danceTeachers = new ArrayCollection();
@@ -150,6 +153,18 @@ class DanceClasses
                 $userMessage->setDanceClasses(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEventCalendar(): ?EventCalendar
+    {
+        return $this->eventCalendar;
+    }
+
+    public function setEventCalendar(?EventCalendar $eventCalendar): self
+    {
+        $this->eventCalendar = $eventCalendar;
 
         return $this;
     }
