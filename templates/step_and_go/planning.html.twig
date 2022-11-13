@@ -5,10 +5,8 @@
 {% block body %}
 <main class="container">
 
-    <div class="mt-5 mb-5" id="calendar"></div>
-
     <p class="planning-image text-center mt-5 mb-5">
-        <img src="{{ asset('build/images/planning-dance-2022-2023.jpg') }}" class="Planning">
+        <div class="mt-5 mb-5" id="calendar" class="Planning"></div>
     </p>
 
     <h1 class="text-center mb-5">Tarifs et modalités d'inscription</h1>
@@ -19,4 +17,29 @@
     </p>
 
 </main>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    window.onload = () => {
+        let calendarElt = document.getElementById('calendar');
+        let calendar = new FullCalendar.Calendar(calendarElt, {
+            initialView: 'timeGridWeek',
+            locale: 'fr',
+            timezone: 'Europe/Paris',
+            headerToolbar: {
+                start: 'prev,next today',
+                center: 'title',
+                end: 'timeGridWeek,timeGridDay'
+            },
+            buttonText: {
+                today: 'Aujourd\'hui',
+                week: 'Semaine',
+                day: 'Jour',
+            },
+            events: {{ data|raw }}
+        });
+        calendar.render();
+    };
+</script>
 {% endblock %}

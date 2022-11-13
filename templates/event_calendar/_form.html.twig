@@ -1,4 +1,44 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+<div class="message-form-content ">
+    <p class="my-custom-class-for-errors">
+    {{ form_errors(form) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.title) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        {{ form_widget(form.title) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.start) }}
+        {{ form_widget(form.start) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.end) }}
+        {{ form_widget(form.end) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.description) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        {{ form_widget(form.description) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.danceClasses) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        {{ form_widget(form.danceClasses) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.is_all_day) }}
+        {{ form_widget(form.is_all_day) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.background_color) }}
+        {{ form_widget(form.background_color) }}
+    </p>
+    <p class="text-center mt-5 mb-5">
+        <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+    </p>
+</div>
 {{ form_end(form) }}

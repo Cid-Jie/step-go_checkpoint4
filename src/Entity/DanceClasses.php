@@ -47,13 +47,14 @@ class DanceClasses
     #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: UserMessage::class)]
     private Collection $userMessages;
 
-    #[ORM\ManyToOne(inversedBy: 'danceClasses')]
-    private ?EventCalendar $eventCalendar = null;
+    #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: EventCalendar::class)]
+    private Collection $eventCalendars;
 
     public function __construct()
     {
         $this->danceTeachers = new ArrayCollection();
         $this->userMessages = new ArrayCollection();
+        $this->eventCalendars = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -157,15 +158,34 @@ class DanceClasses
         return $this;
     }
 
-    public function getEventCalendar(): ?EventCalendar
+    /**
+     * @return Collection<int, EventCalendar>
+     */
+    public function getEventCalendars(): Collection
     {
-        return $this->eventCalendar;
+        return $this->eventCalendars;
     }
 
-    public function setEventCalendar(?EventCalendar $eventCalendar): self
+    public function addEventCalendar(EventCalendar $eventCalendar): self
     {
-        $this->eventCalendar = $eventCalendar;
+        if (!$this->eventCalendars->contains($eventCalendar)) {
+            $this->eventCalendars[] = $eventCalendar;
+            $eventCalendar->setDanceClasses($this);
+        }
 
         return $this;
     }
+
+    public function removeEventCalendar(EventCalendar $eventCalendar): self
+    {
+        if ($this->eventCalendars->removeElement($eventCalendar)) {
+            // set the owning side to null (unless already changed)
+            if ($eventCalendar->getDanceClasses() === $this) {
+                $eventCalendar->setDanceClasses(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\EventCalendarRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,19 +26,14 @@ class EventCalendar
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\OneToMany(mappedBy: 'eventCalendar', targetEntity: DanceClasses::class)]
-    private Collection $danceClasses;
-
     #[ORM\Column]
     private ?bool $is_all_day = null;
 
     #[ORM\Column(length: 10)]
     private ?string $background_color = null;
 
-    public function __construct()
-    {
-        $this->danceClasses = new ArrayCollection();
-    }
+    #[ORM\ManyToOne(inversedBy: 'eventCalendars')]
+    private ?DanceClasses $danceClasses = null;
 
     public function getId(): ?int
     {
@@ -95,37 +88,12 @@ class EventCalendar
         return $this;
     }
 
-    /**
-     * @return Collection<int, DanceClasses>
-     */
-    public function getDanceClasses(): Collection
+    public function getDanceClasses(): ?DanceClasses
     {
         return $this->danceClasses;
     }
 
-    public function addDanceClass(DanceClasses $danceClass): self
-    {
-        if (!$this->danceClasses->contains($danceClass)) {
-            $this->danceClasses[] = $danceClass;
-            $danceClass->setEventCalendar($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDanceClass(DanceClasses $danceClass): self
-    {
-        if ($this->danceClasses->removeElement($danceClass)) {
-            // set the owning side to null (unless already changed)
-            if ($danceClass->getEventCalendar() === $this) {
-                $danceClass->setEventCalendar(null);
-            }
-        }
-
-        return $this;
-    }
-
-    public function isIsAllDay(): ?bool
+    public function isAllDay(): ?bool
     {
         return $this->is_all_day;
     }
@@ -145,6 +113,13 @@ class EventCalendar
     public function setBackgroundColor(string $background_color): self
     {
         $this->background_color = $background_color;
+
+        return $this;
+    }
+
+    public function setDanceClasses(?DanceClasses $danceClasses): self
+    {
+        $this->danceClasses = $danceClasses;
 
         return $this;
     }
