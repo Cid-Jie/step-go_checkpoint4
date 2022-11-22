@@ -1,13 +1,20 @@
 {% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
 
 {% block title %}Edit EventCalendar{% endblock %}
 
 {% block body %}
-    <h1>Edit EventCalendar</h1>
+<main class="container">
+
+    <h1 class="text-center mt-5 mb-5">Modification</h1>
 
     {{ include('event_calendar/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_event_calendar_index') }}">back to list</a>
-
     {{ include('event_calendar/_delete_form.html.twig') }}
+
+    <p class="mt-5 mb-5">
+        <a href="{{ path('app_event_calendar_index') }}">Retour à la liste des événements</a>
+    </p>
+
+</main> 
 {% endblock %}

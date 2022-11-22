@@ -6,6 +6,7 @@ use App\Entity\DanceClasses;
 use App\Entity\EventCalendar;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -20,29 +21,37 @@ class EventCalendarType extends AbstractType
     {
         $builder
             ->add('title', TypeTextType::class, [
-                'label' => 'Titre de l\'événement',
+                'label' => 'Titre de l\'événement : ',
             ])
             ->add('start', DateTimeType::class, [
-                'label' => 'Date et heure de départ',
+                'label' => 'Date et heure de départ : ',
             ])
             ->add('end', DateTimeType::class, [
-                'label' => 'Date et heure de départ',
+                'label' => 'Date et heure de départ : ',
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'Description'
+                'label' => 'Description : '
             ])
-            ->add('is_all_day', ChoiceType::class, [
-                'label' => 'Toute la journée'
+            ->add('is_all_day', CheckboxType::class, [
+                'label' => 'Toute la journée : ',
+                'required' => false
             ])
             ->add('background_color', ColorType::class, [
-                'label' => 'Couleur de l\'événement'
+                'label' => 'Couleur de l\'événement : '
             ])
             ->add('danceClasses', EntityType::class, [
                 'class' => DanceClasses::class,
                 'choice_label' => 'name',
-                'label' => 'Cours de danse'
+                'label' => 'Cours de danse : '
             ])
-        ;
+            ->add('is_recurring', CheckboxType::class, [
+                'mapped' => false,
+                'label' => 'Evenement récurrent : ',
+                'attr' => [
+                    'class' => 'is-recurring',
+                ],
+                'required' => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
