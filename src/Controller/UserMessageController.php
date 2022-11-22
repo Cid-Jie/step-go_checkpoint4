@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\UserMessage;
 use App\Form\UserMessageType;
+use App\Repository\DanceClassesRepository;
+use App\Repository\DanceTeacherRepository;
 use App\Repository\UserMessageRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,7 +25,7 @@ class UserMessageController extends AbstractController
     }
 
     #[Route('/new', name: 'app_user_message_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, UserMessageRepository $userMessageRepository): Response
+    public function new(Request $request, UserMessageRepository $userMessageRepository, DanceClassesRepository $danceClassesRepository, DanceTeacherRepository $danceTeacherRepository): Response
     {
         $userMessage = new UserMessage();
         $form = $this->createForm(UserMessageType::class, $userMessage);
@@ -38,6 +40,8 @@ class UserMessageController extends AbstractController
         return $this->renderForm('user_message/new.html.twig', [
             'user_message' => $userMessage,
             'form' => $form,
+            'dance_classes' => $danceClassesRepository->findAll(),
+            'dance_teachers' => $danceTeacherRepository->findAll(),
         ]);
     }
 

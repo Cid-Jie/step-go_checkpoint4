@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\EventCalendar;
 use App\Form\EventCalendarType;
 use App\Repository\EventCalendarRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/event/calendar')]
 class EventCalendarController extends AbstractController
 {
-    #[IsGranted('ROLE_ADMIN')]
     #[Route('/', name: 'app_event_calendar_index', methods: ['GET'])]
     public function index(EventCalendarRepository $eventCalendarRepository): Response
     {
@@ -23,7 +21,6 @@ class EventCalendarController extends AbstractController
         ]);
     }
 
-    #[IsGranted('ROLE_ADMIN')]
     #[Route('/new', name: 'app_event_calendar_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EventCalendarRepository $eventCalendarRepository): Response
     {
@@ -43,7 +40,6 @@ class EventCalendarController extends AbstractController
         ]);
     }
 
-    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{id}', name: 'app_event_calendar_show', methods: ['GET'])]
     public function show(EventCalendar $eventCalendar): Response
     {
@@ -52,7 +48,6 @@ class EventCalendarController extends AbstractController
         ]);
     }
 
-    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{id}/edit', name: 'app_event_calendar_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, EventCalendar $eventCalendar, EventCalendarRepository $eventCalendarRepository): Response
     {
@@ -71,7 +66,6 @@ class EventCalendarController extends AbstractController
         ]);
     }
 
-    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{id}', name: 'app_event_calendar_delete', methods: ['POST'])]
     public function delete(Request $request, EventCalendar $eventCalendar, EventCalendarRepository $eventCalendarRepository): Response
     {

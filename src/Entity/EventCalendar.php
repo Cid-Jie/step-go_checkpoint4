@@ -5,8 +5,13 @@ namespace App\Entity;
 use App\Repository\EventCalendarRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\DiscriminatorColumn;
+use Doctrine\ORM\Mapping\DiscriminatorMap;
 
 #[ORM\Entity(repositoryClass: EventCalendarRepository::class)]
+#[ORM\InheritanceType("SINGLE_TABLE")]
+#[DiscriminatorColumn(name: 'isRecurring', type: 'integer')]
+#[DiscriminatorMap([1 => EventCalendar::class, 0 => RecurringEvent::class])]
 class EventCalendar
 {
     #[ORM\Id]
@@ -29,7 +34,7 @@ class EventCalendar
     #[ORM\Column]
     private ?bool $is_all_day = null;
 
-    #[ORM\Column(length: 10)]
+    #[ORM\Column(length: 7)]
     private ?string $background_color = null;
 
     #[ORM\ManyToOne(inversedBy: 'eventCalendars')]

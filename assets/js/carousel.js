@@ -1,7 +1,5 @@
 //Carousel
-
 if (document.getElementById('container-carousel')) {
-
     const carousel = [
         {
             picture: "https://cdn.pixabay.com/photo/2016/07/07/12/48/reload-crew-1502408_960_720.jpg",

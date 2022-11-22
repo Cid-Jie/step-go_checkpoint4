@@ -3,12 +3,8 @@
 {% block title %}EventCalendar index{% endblock %}
 
 {% block body %}
-<main class="container">
+    <h1>EventCalendar index</h1>
 
-    <h1 class="text-center mt-5 mb-5">Calendrier</h1>
-
-    <a href="{{ path('app_event_calendar_new') }}">Créer un nouvel événement</a>
-    
     <table class="table">
         <thead>
             <tr>
@@ -45,5 +41,5 @@
         </tbody>
     </table>
 
-</main>
+    <a href="{{ path('app_event_calendar_new') }}">Create new</a>
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Step and Go{% endblock %}
+
+{% block body %}
+<div>
+    <h1 class="text-center mt-5 mb-5">{{ dance_class.name }}</h1>
+</div>
+
+<div class="text-center">
+    <img class="photo_classes" src="{{ dance_class.poster }}" alt="photo dance class" width="400px">
+</div>
+
+<p class="container mt-5 mb-5">
+    {{ dance_class.description }}    
+</p>
+
+{% endblock %}

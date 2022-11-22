@@ -3,13 +3,9 @@
 {% block title %}New EventCalendar{% endblock %}
 
 {% block body %}
-<main class="container">
-
-    <h1 class="text-center mt-5 mb-5">Créer un nouvel événement</h1>
+    <h1>Create new EventCalendar</h1>
 
     {{ include('event_calendar/_form.html.twig') }}
 
-    <a href="{{ path('app_event_calendar_index') }}">Retour à la liste des événements</a>
-
-</main>
+    <a href="{{ path('app_event_calendar_index') }}">back to list</a>
 {% endblock %}

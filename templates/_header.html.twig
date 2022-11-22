@@ -5,52 +5,76 @@
 <nav class="navbar navbar-expand-md">
 	<div class="container-fluid">
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"><p class="image-burger"><img src="{{ asset('build/images/menu.png') }}" alt="Ballerine login" width="40px"></p></span>
+			<span class="navbar-toggler-icon">
+				<p class="image-burger"><img src="{{ asset('build/images/menu.png') }}" alt="Ballerine login" width="40px"></p>
+			</span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('app_step_and_go') }}">L'école</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('app_dance_classes') }}">Les cours de danse</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('app_dance_teachers') }}">Les professeurs</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('app_dance_planning') }}">Planning / Inscription</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('app_dance_contact') }}">Contact</a>
-				</li>
-				{% if is_granted('ROLE_ADMIN') %}
+			{% if is_granted('ROLE_ADMIN') %}
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_dance_classes_index') }}">Les cours de danses</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_dance_teacher_index') }}">Les professeurs</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_event_calendar_index') }}">Calendrier</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_user_message_index') }}">Messages</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+					</li>
+				</ul>
+			{% else %}
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_step_and_go') }}">L'école</a>
+					</li>
+					{# <li class="nav-item">
+						<a class="nav-link" href="{{ path('app_dance_classes') }}">Les cours de danse</a>
+					</li> #}
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Admin
+						<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Les cours de danse
 						</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li>
-								<a class="dropdown-item" href="{{ path('app_dance_classes_index') }}">Les cours de danses</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="{{ path('app_dance_teacher_index') }}">Les professeurs</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="{{ path('app_event_calendar_index') }}">Calendrier</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="{{ path('app_user_message_index') }}">Messages</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
-							</li>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							{% for dance_class in dance_classes %}
+								<li>
+									<a class="dropdown-item" href="{{ path('app_dance_class_show', {'id': dance_class.id}) }}">{{ dance_class.name }}</a>
+								</li>
+							{% endfor %}
 						</ul>
 					</li>
-				{% endif %}
-			</ul>
+					{# <li class="nav-item">
+						<a class="nav-link" href="{{ path('app_dance_teachers') }}">Les professeurs</a>
+					</li> #}
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Les professeurs
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							{% for dance_teacher in dance_teachers %}
+								<li>
+									<a class="dropdown-item" href="{{ path('app_dance_teacher_show', {'id': dance_teacher.id}) }}">{{ dance_teacher.firstname }}
+										{{ dance_teacher.lastname }} - {{ dance_teacher.danceClasses.name }}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_dance_information') }}">Informations</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_dance_planning') }}">Planning</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_dance_contact') }}">Contact</a>
+					</li>
+				</ul>
+			{% endif %}
 		</div>
 	</div>
 </nav>
-
-    
