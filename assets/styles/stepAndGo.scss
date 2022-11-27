@@ -36,7 +36,7 @@
         }
         .carousel-title {
             margin-top: 20px;
-            font-size: 1.01em;
+            font-size: 1em;
             text-align: center;
             color: $primary-dark;
         }
@@ -47,8 +47,7 @@
             padding: 0 10px;
             top: 40%;
         }
-    }
-    
+    }  
 }
 
 #leftButton {
@@ -57,20 +56,17 @@
     transform: rotate(0deg);
     transition:all 0.3s ease;
 }
-
 #rightButton{
     right: -50px;
     opacity: 1;
     transform: rotate(180deg);
     transition:all 0.3s ease;
 }
-
 #leftButton:hover{
     transform: rotate(0deg) scale(1.1);
     opacity: 1;
     transition:all 0.3s ease;
 }
-
 #rightButton:hover{
     transform: rotate(180deg) scale(1.1);
     opacity: 1;
@@ -130,19 +126,19 @@ p {
     #rightButton{
         right: 0;
     }
-    #photo-accueil {
-        width: 100%;
-        height: auto;
-    }
-    .photo_classes, .photo_teacher {
+    #photo-accueil, .photo_classes, .photo_teacher {
         width: 100%;
         height: auto;
     }
 }
 
 @media screen and (max-width: 360px) {
-    .photo-carousel {
-        width: 100%;
-        height: auto;
+    .carousel {
+        #container-carousel {
+            .photo-carousel {
+                width: 100%;
+                height: auto;
+            }
+        }
     }
 }
