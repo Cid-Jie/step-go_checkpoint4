@@ -16,7 +16,7 @@ if (document.getElementById('calendar')) {
                     week: 'Semaine',
                     day: 'Jour',
                 },
-               event: data,
+              
         });
         calendar.render();
       });

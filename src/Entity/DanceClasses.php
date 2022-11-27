@@ -47,14 +47,14 @@ class DanceClasses
     #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: UserMessage::class)]
     private Collection $userMessages;
 
-    #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: EventCalendar::class)]
-    private Collection $eventCalendars;
+    #[ORM\OneToMany(mappedBy: 'danceClass', targetEntity: EventPlanning::class)]
+    private Collection $eventPlannings;
 
     public function __construct()
     {
         $this->danceTeachers = new ArrayCollection();
         $this->userMessages = new ArrayCollection();
-        $this->eventCalendars = new ArrayCollection();
+        $this->eventPlannings = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -159,29 +159,29 @@ class DanceClasses
     }
 
     /**
-     * @return Collection<int, EventCalendar>
+     * @return Collection<int, EventPlanning>
      */
-    public function getEventCalendars(): Collection
+    public function getEventPlannings(): Collection
     {
-        return $this->eventCalendars;
+        return $this->eventPlannings;
     }
 
-    public function addEventCalendar(EventCalendar $eventCalendar): self
+    public function addEventPlanning(EventPlanning $eventPlanning): self
     {
-        if (!$this->eventCalendars->contains($eventCalendar)) {
-            $this->eventCalendars[] = $eventCalendar;
-            $eventCalendar->setDanceClasses($this);
+        if (!$this->eventPlannings->contains($eventPlanning)) {
+            $this->eventPlannings[] = $eventPlanning;
+            $eventPlanning->setDanceClasses($this);
         }
 
         return $this;
     }
 
-    public function removeEventCalendar(EventCalendar $eventCalendar): self
+    public function removeEventPlanning(EventPlanning $eventPlanning): self
     {
-        if ($this->eventCalendars->removeElement($eventCalendar)) {
+        if ($this->eventPlannings->removeElement($eventPlanning)) {
             // set the owning side to null (unless already changed)
-            if ($eventCalendar->getDanceClasses() === $this) {
-                $eventCalendar->setDanceClasses(null);
+            if ($eventPlanning->getDanceClasses() === $this) {
+                $eventPlanning->setDanceClasses(null);
             }
         }
 

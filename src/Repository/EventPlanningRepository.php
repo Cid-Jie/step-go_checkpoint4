@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\EventCalendar;
+use App\Entity\EventPlanning;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<EventCalendar>
+ * @extends ServiceEntityRepository<EventPlanning>
  *
- * @method EventCalendar|null find($id, $lockMode = null, $lockVersion = null)
- * @method EventCalendar|null findOneBy(array $criteria, array $orderBy = null)
- * @method EventCalendar[]    findAll()
- * @method EventCalendar[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method EventPlanning|null find($id, $lockMode = null, $lockVersion = null)
+ * @method EventPlanning|null findOneBy(array $criteria, array $orderBy = null)
+ * @method EventPlanning[]    findAll()
+ * @method EventPlanning[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class EventCalendarRepository extends ServiceEntityRepository
+class EventPlanningRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, EventCalendar::class);
+        parent::__construct($registry, EventPlanning::class);
     }
 
-    public function add(EventCalendar $entity, bool $flush = false): void
+    public function add(EventPlanning $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class EventCalendarRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(EventCalendar $entity, bool $flush = false): void
+    public function remove(EventPlanning $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class EventCalendarRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return EventCalendar[] Returns an array of EventCalendar objects
+//     * @return EventPlanning[] Returns an array of EventPlanning objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class EventCalendarRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?EventCalendar
+//    public function findOneBySomeField($value): ?EventPlanning
 //    {
 //        return $this->createQueryBuilder('e')
 //            ->andWhere('e.exampleField = :val')
