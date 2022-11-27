@@ -42,13 +42,22 @@ class StepAndGoController extends AbstractController
         ]);
     }
 
-    #[Route('/step/information', name: 'app_dance_information')]
-    public function information(DanceClassesRepository $danceClassesRepository, DanceTeacherRepository $danceTeacherRepository, EventPlanningRepository $eventPlanningRepository): Response
+    #[Route('/step/planning', name: 'app_dance_planning')]
+    public function planning(DanceClassesRepository $danceClassesRepository, DanceTeacherRepository $danceTeacherRepository, EventPlanningRepository $eventPlanningRepository): Response
     {
-        return $this->render('step_and_go/information.html.twig', [
+        return $this->render('step_and_go/planning.html.twig', [
             'dance_classes' => $danceClassesRepository->findAll(),
             'dance_teachers' => $danceTeacherRepository->findAll(),
             'events' => $eventPlanningRepository->findAll()
+        ]);
+    }
+
+    #[Route('/step/rate', name: 'app_dance_rate')]
+    public function rate(DanceClassesRepository $danceClassesRepository, DanceTeacherRepository $danceTeacherRepository): Response
+    {
+        return $this->render('step_and_go/rate.html.twig', [
+            'dance_classes' => $danceClassesRepository->findAll(),
+            'dance_teachers' => $danceTeacherRepository->findAll(),
         ]);
     }
 

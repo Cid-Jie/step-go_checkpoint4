@@ -3,7 +3,8 @@
 {% block title %}EventPlanning{% endblock %}
 
 {% block body %}
-    <h1>EventPlanning</h1>
+<main class="container">
+    <h1 class="text-center mt-5 mb-5">Planning</h1>
 
     <table class="table">
         <tbody>
@@ -21,10 +22,13 @@
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('app_event_planning_index') }}">back to list</a>
-
-    <a href="{{ path('app_event_planning_edit', {'id': event_planning.id}) }}">edit</a>
-
+    <p class="text-center mt-5 mb-5">
+       <a href="{{ path('app_event_planning_edit', {'id': event_planning.id}) }}">Modifier</a>
+    </p>
     {{ include('event_planning/_delete_form.html.twig') }}
+
+    <p class="mt-5 mb-5">
+       <a href="{{ path('app_event_planning_index') }}">Retour à la liste des plannings</a>
+    </p>
+</main>
 {% endblock %}

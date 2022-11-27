@@ -1,4 +1,32 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <p class="my-custom-class-for-errors">
+    {{ form_errors(form) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.danceClasses) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        {{ form_widget(form.danceClasses) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.daysOfWeek) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        {{ form_widget(form.daysOfWeek) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.hoursOfDay) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        {{ form_widget(form.hoursOfDay) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.description) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        {{ form_widget(form.description) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+    </p>
 {{ form_end(form) }}

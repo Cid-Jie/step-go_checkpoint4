@@ -7,6 +7,7 @@ use App\Entity\EventPlanning;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,7 +16,7 @@ class EventPlanningType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('days_of_week', ChoiceType::class, [
+            ->add('daysOfWeek', ChoiceType::class, [
                 'label' => 'Jour de la semaine: ',
                 'choices' => [
                     'Lundi' => 1,

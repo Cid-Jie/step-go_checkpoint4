@@ -3,9 +3,15 @@
 {% block title %}New EventPlanning{% endblock %}
 
 {% block body %}
-    <h1>Create new EventPlanning</h1>
+<main class="container">
+
+    <h1 class="text-center mt-5 mb-5">Créer un nouveau planning</h1>
 
     {{ include('event_planning/_form.html.twig') }}
+    
+    <p class="mt-5 mb-5">
+        <a href="{{ path('app_event_planning_index') }}">Retour à la liste des plannings</a>
+    </p>
 
-    <a href="{{ path('app_event_planning_index') }}">back to list</a>
+</main>
 {% endblock %}

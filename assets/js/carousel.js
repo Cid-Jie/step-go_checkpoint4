@@ -3,8 +3,8 @@ if (document.getElementById('container-carousel')) {
     const carousel = [
         {
             picture: "https://cdn.pixabay.com/photo/2016/07/07/12/48/reload-crew-1502408_960_720.jpg",
-            alt: "Elèves",
-            title: "Elèves"
+            alt: "Les danseurs",
+            title: "Les danseurs"
         },
         {
             picture: "https://images.pexels.com/photos/12312/pexels-photo-12312.jpeg",

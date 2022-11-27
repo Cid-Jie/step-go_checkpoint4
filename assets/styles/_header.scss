@@ -6,7 +6,7 @@
     h1 {
         font-family: $title-font;
         font-weight: bold;
-        font-size: 1.6em;
+        font-size: 1.5em;
     }
 }
 
@@ -34,20 +34,6 @@ a.nav-link {
         width: 40px;
     }
 }
-// a:after {
-//     content: '';
-//     display: block;
-//     position: absolute;
-//     bottom: 2px;
-//     width: 0%;
-//     left: 0px;
-//     height: 3px;
-//     transition: 0.25s cubic-bezier(0.72,-0.01, 0.19, 0.92);
-//     background: $primary-dark;
-// }
-// a:hover:after {
-//     width: 100%;
-// }
 
 a.nav-link:hover {
     color: $primary-dark;

@@ -1,13 +1,12 @@
-<div class="title pt-5 pb-2">
+<div class="title pt-4 pb-2">
 	<h1 class="text-center">Step and Go</h1>
-	<h4 class="text-center">Ecole de danse à Lyon</h4>
 </div>
 
 <nav class="navbar navbar-expand-md">
 	<div class="container-fluid">
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon">
-				<p class="image-burger"><img src="{{ asset('build/images/menu.png') }}" alt="Ballerine login" width="40px"></p>
+				<p class="image-burger"><img src="{{ asset('build/images/menu_burger.png') }}" alt="Menu burger" width="40px"></p>
 			</span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -20,7 +19,7 @@
 						<a class="nav-link" href="{{ path('app_dance_teacher_index') }}">Les professeurs</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_event_planning_index') }}">Calendrier</a>
+						<a class="nav-link" href="{{ path('app_event_planning_index') }}">Planning</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="{{ path('app_user_message_index') }}">Messages</a>
@@ -34,9 +33,6 @@
 					<li class="nav-item">
 						<a class="nav-link" href="{{ path('app_step_and_go') }}">L'école</a>
 					</li>
-					{# <li class="nav-item">
-						<a class="nav-link" href="{{ path('app_dance_classes') }}">Les cours de danse</a>
-					</li> #}
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Les cours de danse
@@ -49,9 +45,6 @@
 							{% endfor %}
 						</ul>
 					</li>
-					{# <li class="nav-item">
-						<a class="nav-link" href="{{ path('app_dance_teachers') }}">Les professeurs</a>
-					</li> #}
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Les professeurs
@@ -66,10 +59,10 @@
 						</ul>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_dance_information') }}">Planning</a>
+						<a class="nav-link" href="{{ path('app_dance_planning') }}">Planning</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_dance_information') }}">Tarifs</a>
+						<a class="nav-link" href="{{ path('app_dance_rate') }}">Tarifs</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="{{ path('app_dance_contact') }}">Contact</a>

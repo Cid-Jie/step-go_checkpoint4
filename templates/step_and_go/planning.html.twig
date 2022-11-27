@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Planning{% endblock %}
+
+{% block body %}
+<main class="container">
+
+    <h1 class="text-center mt-5 mb-5">Planning de l'année</h1>
+   
+    <table class="table table-hover mb-5">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">Horaires / Jour</th>
+                <th scope="col">Lundi</th>
+                <th scope="col">Mardi</th>
+                <th scope="col">Mercredi</th>
+                <th scope="col">Jeudi</th>
+                <th scope="col">Vendredi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center">
+                <th scope="row">18h </br>-</br> 19h</th>
+                    {% for event in events %}
+                        {% if event.hoursOfDay == 1 %}
+                        <td>{% if event.daysOfWeek == 1 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 2 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 3 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 4 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 5 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            <tr class="text-center">
+                <th scope="row">19h </br>-</br> 20h</th>
+                    {% for event in events %}
+                        {% if event.hoursOfDay == 2 %}
+                        <td>{% if event.daysOfWeek == 1 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 2 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 3 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 4 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 5 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        {% endif %}
+                    {% endfor %}
+            </tr>
+            <tr class="text-center">
+                <th scope="row">20h </br>-</br> 21h</th>
+                    {% for event in events %}
+                        {% if event.hoursOfDay == 3 %}
+                        <td>{% if event.daysOfWeek == 1 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 2 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 3 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 4 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 5 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        {% endif %}
+                    {% endfor %}
+            </tr>
+            <tr class="text-center">
+                <th scope="row">21h </br>-</br> 22h</th>
+                    {% for event in events %}
+                        {% if event.hoursOfDay == 4 %}
+                        <td>{% if event.daysOfWeek == 1 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 2 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 3 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 4 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        <td>{% if event.daysOfWeek == 5 %}<span class="event-title">{{ event.danceClasses.name }}</span><br><span class="event-description">{{ event.description }}</span>{% endif %}</td>
+                        {% endif %}
+                    {% endfor %}
+            </tr>
+        <tbody>
+    </table>
+</main>
+{% endblock %}
