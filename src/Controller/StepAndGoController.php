@@ -8,6 +8,7 @@ use App\Repository\DanceClassesRepository;
 use App\Repository\DanceTeacherRepository;
 use App\Repository\EventPlanningRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -45,10 +46,26 @@ class StepAndGoController extends AbstractController
     #[Route('/step/planning', name: 'app_dance_planning')]
     public function planning(DanceClassesRepository $danceClassesRepository, DanceTeacherRepository $danceTeacherRepository, EventPlanningRepository $eventPlanningRepository): Response
     {
+        $events = $eventPlanningRepository->findAll();
+
+        $eventArray = [];
+
+        foreach ($events as $event) {
+            $eventArray[] = [
+                'id' => $event->getId(),
+                'daysOfWeek' => $event->getDaysOfWeek(),
+                'hoursOfDay' => $event->getHoursOfDay(),
+                'description' => $event->getDescription(),
+            ];
+        }
+
+        $data = json_encode($eventArray);
+
         return $this->render('step_and_go/planning.html.twig', [
+            'data' => $data,
             'dance_classes' => $danceClassesRepository->findAll(),
             'dance_teachers' => $danceTeacherRepository->findAll(),
-            'events' => $eventPlanningRepository->findAll()
+            'events' => $eventPlanningRepository->findAll(),
         ]);
     }
 

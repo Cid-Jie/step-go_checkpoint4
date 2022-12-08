@@ -67,6 +67,10 @@ Encore
     // enables Sass/SCSS support
     .enableSassLoader()
 
+
+    // enables VueJs
+    .enableVueLoader()
+
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
