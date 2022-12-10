@@ -50,11 +50,15 @@ class DanceClasses
     #[ORM\OneToMany(mappedBy: 'danceClass', targetEntity: EventPlanning::class)]
     private Collection $eventPlannings;
 
+    #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: Event::class)]
+    private Collection $events;
+
     public function __construct()
     {
         $this->danceTeachers = new ArrayCollection();
         $this->userMessages = new ArrayCollection();
         $this->eventPlannings = new ArrayCollection();
+        $this->events = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -182,6 +186,36 @@ class DanceClasses
             // set the owning side to null (unless already changed)
             if ($eventPlanning->getDanceClasses() === $this) {
                 $eventPlanning->setDanceClasses(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Event>
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Event $event): self
+    {
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->setDanceClasses($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Event $event): self
+    {
+        if ($this->events->removeElement($event)) {
+            // set the owning side to null (unless already changed)
+            if ($event->getDanceClasses() === $this) {
+                $event->setDanceClasses(null);
             }
         }
 

@@ -2,11 +2,18 @@
 
 {% block title %}Planning{% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('planning') }}
+{% endblock %}
+
 {% block body %}
     <main class="container">
+    
         <div id="planning-container">
             <Planning></Planning>
         </div>
+
         <h1 class="text-center mt-5 mb-5">Planning de l'année</h1>
 
         <div class="table-responsive">

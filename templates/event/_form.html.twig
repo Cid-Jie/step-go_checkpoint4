@@ -1,0 +1,46 @@
+{{ form_start(form) }}
+    <p class="my-custom-class-for-errors">
+    {{ form_errors(form) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.name) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        {{ form_widget(form.name) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.start) }}
+        {{ form_widget(form.start) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.end) }}
+        {{ form_widget(form.end) }}
+    </p>
+        <p class="text-center mt-5 mb-1">
+        {{ form_label(form.color) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        {{ form_widget(form.color) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.description) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        {{ form_widget(form.description) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.timed) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        {{ form_widget(form.timed) }}
+    </p>
+    <p class="text-center mt-5 mb-1">
+        {{ form_label(form.danceClasses) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        {{ form_widget(form.danceClasses) }}
+    </p>
+    <p class="text-center mt-1 mb-5">
+        <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+    </p>
+{{ form_end(form) }}
