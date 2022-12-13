@@ -9,11 +9,11 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Firstname</th>
+                <th>Prénom</th>
                 <td>{{ user_message.firstname }}</td>
             </tr>
             <tr>
-                <th>Lastname</th>
+                <th>Nom</th>
                 <td>{{ user_message.lastname }}</td>
             </tr>
             <tr>
@@ -21,7 +21,7 @@
                 <td>{{ user_message.email }}</td>
             </tr>
             <tr>
-                <th>Reason</th>
+                <th>Raison</th>
                 <td>{{ user_message.reason }}</td>
             </tr>
             <tr>
@@ -29,14 +29,14 @@
                 <td>{{ user_message.message }}</td>
             </tr>
             <tr>
-                <th>Message</th>
+                <th>Cours de danse</th>
             <td>{{ user_message.danceClasses.name }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_user_message_index') }}">Retour à la liste des messages</a>
-
     {{ include('user_message/_delete_form.html.twig') }}
+
+    <a href="{{ path('app_user_message_index') }}">Retour à la liste des messages</a>
 </main>
 {% endblock %}

@@ -7,40 +7,41 @@
         >
           <v-btn
             outlined
+            class="mr-4"
+            color="grey darken-2"
             @click="setToday"
           >
             Aujourd'hui
           </v-btn>
+          <v-spacer></v-spacer>
           <v-btn
             fab
             text
             small
+            color="grey darken-2"
             @click="prev"
           >
             <v-icon small>
-              mdi-chevron-left
+               <
             </v-icon>
           </v-btn>
+          
           <v-toolbar-title v-if="$refs.calendar">
             {{ $refs.calendar.title.toUpperCase() }}
           </v-toolbar-title>
+         
           <v-btn
             fab
             text
             small
+            color="grey darken-2"
             @click="next"
           >
             <v-icon small>
-              mdi-chevron-right
+               >
             </v-icon>
           </v-btn>
-
           <v-spacer></v-spacer>
-          <v-menu
-            bottom
-            right
-          >
-          </v-menu>
         </v-toolbar>
       </v-sheet>
       <v-sheet height="500">
@@ -54,12 +55,20 @@
           :event-color="getEventColor"
           :type="type"
           @change="updateEvents"
-        ></v-calendar>
+        >
+
+        <template v-slot:event="{ event }">
+            <div>{{ event.danceClasse }}</div>
+            <div>{{ event.start }} <br/> {{ event.end }}</div>
+            <div>{{ event.description }}</div>
+        </template>
+      
+        </v-calendar>
       </v-sheet>
     </v-col>
   </v-row>
 </template>
-  
+
 <script>
 export default {
   data: () => ({
@@ -84,11 +93,15 @@ export default {
     next () {
       this.$refs.calendar.next()
     },
+    // Call api to retrieve all informations of the database
     updateEvents({ start, end }) {
-      fetch('/api')
+      const firstDay = start.date
+      const lastDay = end.date
+      // Add start date and end date of the week
+      fetch(`/get-events?start=${firstDay}&end=${lastDay}`)
           .then(response => response.json())
           .then(response => {
-            this.events = response;
+            this.events = response;      
           })
     },
   },

@@ -39,6 +39,24 @@ class EventRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * Find Event between start and last date
+     *
+     * @param [type] $firstDay
+     * @param [type] $lastDay
+     * @return array
+     */
+   public function findByWeek($firstDay, $lastDay): array
+   {
+        return $this->createQueryBuilder('event')
+            ->andWhere('event.start > :first and event.start < :end')
+            ->orWhere('event.end > :first and event.end < :end')
+            ->orWhere('event.start < :first and event.end > :end')
+            ->setParameters([':first' => $firstDay, ':end' => $lastDay])
+            ->getQuery()
+            ->getResult();
+   }
+
 //    /**
 //     * @return Event[] Returns an array of Event objects
 //     */

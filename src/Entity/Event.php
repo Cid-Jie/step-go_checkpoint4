@@ -7,33 +7,35 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
+#[ORM\InheritanceType('SINGLE_TABLE')]
+#[ORM\DiscriminatorColumn(name: 'type', type: 'string')]
+#[ORM\DiscriminatorMap(['event' => Event::class, 'repeat' => RepeatedEvent::class])]
 class Event
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column()]
-    private ?int $id = null;
+    protected ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    protected ?string $name = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $start = null;
+    protected ?\DateTimeInterface $start = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $end = null;
+    protected ?\DateTimeInterface $end = null;
 
     #[ORM\Column(length: 7)]
-    private ?string $color = null;
+    protected ?string $color = null;
 
-    #[ORM\Column]
-    private ?bool $timed = null;
-
-    #[ORM\ManyToOne(inversedBy: 'events')]
-    private ?DanceClasses $danceClasses = null;
+    // #[ORM\ManyToOne(inversedBy: 'events')]
+    #[ORM\ManyToOne(targetEntity: DanceClasses::class)]
+    #[ORM\JoinColumn(name: 'dance_class_id', referencedColumnName: 'id')]
+    protected ?DanceClasses $danceClasses = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $description = null;
+    protected ?string $description = null;
 
     public function getId(): ?int
     {
@@ -84,18 +86,6 @@ class Event
     public function setColor(string $color): self
     {
         $this->color = $color;
-
-        return $this;
-    }
-
-    public function isTimed(): ?bool
-    {
-        return $this->timed;
-    }
-
-    public function setTimed(bool $timed): self
-    {
-        $this->timed = $timed;
 
         return $this;
     }
