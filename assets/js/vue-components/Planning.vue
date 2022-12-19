@@ -1,14 +1,14 @@
 <template>
   <v-row class="fill-height">
     <v-col>
-      <v-sheet height="64">
+      <v-sheet height="64" width="1250">
         <v-toolbar
           flat
         >
           <v-btn
             outlined
             class="mr-4"
-            color="grey darken-2"
+            color="darken-1"
             @click="setToday"
           >
             Aujourd'hui
@@ -44,27 +44,28 @@
           <v-spacer></v-spacer>
         </v-toolbar>
       </v-sheet>
-      <v-sheet height="500">
-        <v-calendar
-          ref="calendar"
-          v-model="focus"
-          locale="FR"
-          :weekdays="weekday"
-          color="primary"
-          :events="events"
-          :event-color="getEventColor"
-          :type="type"
-          @change="updateEvents"
-        >
+        <v-sheet height="500" width="1250">
+          <v-calendar
+            ref="calendar"
+            v-model="focus"
+            locale="FR"
+            :weekdays="weekday"
+            :events="events"
+            :event-color="getEventColor"
+            :type="type"
+            @change="updateEvents"
+          >
 
-        <template v-slot:event="{ event }">
-            <div>{{ event.danceClasse }}</div>
-            <div>{{ event.start }} <br/> {{ event.end }}</div>
-            <div>{{ event.description }}</div>
-        </template>
-      
-        </v-calendar>
-      </v-sheet>
+          <template v-slot:event="{ event }">
+              <p class="text-center">
+                {{ event.danceClasse }}<br/>
+                {{ event.start.substr(11) }} - {{ event.end.substr(11) }}<br/>
+                {{ event.description }}
+              </p>
+          </template>
+        
+          </v-calendar>
+        </v-sheet>
     </v-col>
   </v-row>
 </template>

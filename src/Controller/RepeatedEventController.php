@@ -32,6 +32,7 @@ class RepeatedEventController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $repeatedEvent->setEnd($repeatedEvent->getEnd()->setTime(23, 59, 59));
             $repeatedEventRepository->add($repeatedEvent, true);
 
             return $this->redirectToRoute('app_repeated_event_index', [], Response::HTTP_SEE_OTHER);

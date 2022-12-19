@@ -18,3 +18,18 @@ p {
 #event_start, #event_end, #event_timed {
     text-align: center;
 }
+
+.scrollable {
+    overflow-x: auto;
+    overflow-y: hidden;
+ }
+
+ .v-btn__content {
+    color: $primary-dark;
+    font-weight: bold;
+ }
+
+
+.only_date_field .input-group {
+    display: none !important;
+ }

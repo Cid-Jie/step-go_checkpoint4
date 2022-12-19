@@ -21,14 +21,6 @@ class BaseEventType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom'
             ])
-            ->add('start', DateTimeType::class, [
-                'label' => 'Début',
-                'date_widget' => 'single_text'
-            ])
-            ->add('end', DateTimeType::class, [
-                'label' => 'Fin',
-                'date_widget' => 'single_text'
-            ])
             ->add('color', ColorType::class, [
                 'label' => 'Couleur',
             ])

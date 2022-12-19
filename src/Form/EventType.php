@@ -2,14 +2,9 @@
 
 namespace App\Form;
 
-use App\Entity\DanceClasses;
 use App\Entity\Event;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,8 +13,8 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [
-                'label' => 'Nom :'
+            ->add('Evenement', BaseEventType::class, [
+                'data_class' => Event::class,
             ])
             ->add('start', DateTimeType::class, [
                 'label' => 'Début',
@@ -28,17 +23,6 @@ class EventType extends AbstractType
             ->add('end', DateTimeType::class, [
                 'label' => 'Fin',
                 'date_widget' => 'single_text'
-            ])
-            ->add('color', ColorType::class, [
-                'label' => 'Couleur',
-            ])
-            ->add('description', TextType::class, [
-                'label' => 'Description',
-            ])
-            ->add('danceClasses', EntityType::class, [
-                'class' => DanceClasses::class,
-                'choice_label' => 'name',
-                'label' => 'Cours de danse : '
             ]);
     }
 
