@@ -28,6 +28,7 @@ class ApiController extends AbstractController
         $firstDay = $request->query->get('start');
         $lastDay = $request->query->get('end');
 
+        // On transforme ces dates en nouvelle date avec une heure pour $lastDay qui se termine à 23:59:59
         $firstDay = new \DateTime($firstDay);
         $lastDay = new \DateTime($lastDay);
         $lastDay->setTime(23,59,59);
@@ -35,7 +36,7 @@ class ApiController extends AbstractController
         // On récupère le numéro de la semaine
         $requestedWeekNumber = intval($firstDay->format("W"));
         
-        // On récupére tous les événements et événements répétitifs en bdd
+        // On récupére tous les événements et événements répétitifs en bdd compris dans la semaine
         $eventsFromDatabase = $eventRepository->findByWeek($firstDay, $lastDay);
 
         // On trouve la semaine actuelle en fonction de today
@@ -43,7 +44,7 @@ class ApiController extends AbstractController
         $currentWeekNumber = intval($today->format("W"));
 
         // On comparer cette semaine à celle demandée dans la requête
-        $weekDifference = $requestedWeekNumber - $currentWeekNumber;
+        $weekDifference =  $currentWeekNumber - $requestedWeekNumber;
 
         /**  Rendu compatible pour le strtotime
         * monday -1 week => renvoi au lundi de la semaine courante (si déjà passé)
@@ -56,11 +57,13 @@ class ApiController extends AbstractController
             $stringifyWeekDifference = 'this';
         }
         if($weekDifference > 0) {
-            $stringifyWeekDifference = '+' . $stringifyWeekDifference;
+            $stringifyWeekDifference = '+' . $requestedWeekNumber;
         }
         if($weekDifference < 0) {
-            $stringifyWeekDifference = '-' .  $stringifyWeekDifference;
+            $stringifyWeekDifference = '-' . $stringifyWeekDifference;
         }
+        
+       // dd($requestedWeekNumber, $currentWeekNumber, $weekDifference, $stringifyWeekDifference);
 
         /**
          * On créé un nouveau tableau vide puis on boucle sur tous les événements pour extraire
