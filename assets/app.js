@@ -15,5 +15,4 @@ import './bootstrap';
 require('bootstrap');
 
 //import js files
-import './js/planning.js';
 import './js/carousel.js';

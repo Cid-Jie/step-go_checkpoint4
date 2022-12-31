@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RepeatedEvent index{% endblock %}
+
+{% block body %}
+<main class="container">
+    
+    <h1 class="text-center mt-5 mb-5">Planning</h1>
+
+    <a href="{{ path('app_repeated_event_new') }}">Créer un nouvel événement répétitif</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Début</th>
+                <th>Fin</th>
+                <th>Couleur</th>
+                <th>Description</th>
+                <th>Jour de la semaine</th>
+                <th>Heure de départ</th>
+                <th>Heure de fin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for repeated_event in repeated_events %}
+            <tr>
+                <td>{{ repeated_event.id }}</td>
+                <td>{{ repeated_event.name }}</td>
+                <td>{{ repeated_event.start ? repeated_event.start|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ repeated_event.end ? repeated_event.end|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ repeated_event.color }}</td>
+                <td>{{ repeated_event.description }}</td>
+                <td>{{ repeated_event.dayOfWeek }}</td>
+                <td>{{ repeated_event.startHour }} : {{ repeated_event.startMinute }}</td>
+                <td>{{ repeated_event.endHour }} : {{ repeated_event.endMinute }}</td>
+                <td>
+                    <a href="{{ path('app_repeated_event_show', {'id': repeated_event.id}) }}">Voir</a>
+                    <a href="{{ path('app_repeated_event_edit', {'id': repeated_event.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</main>
+{% endblock %}

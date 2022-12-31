@@ -6,10 +6,8 @@ use App\Entity\DanceClasses;
 use App\Entity\DanceTeacher;
 use App\Repository\DanceClassesRepository;
 use App\Repository\DanceTeacherRepository;
-use App\Repository\EventPlanningRepository;
 use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -34,7 +32,7 @@ class StepAndGoController extends AbstractController
         ]);
     }
 
-    #[Route('/step/teachers/{id}', name: 'app_dance_teacher_show', methods: ['GET'])]
+    #[Route('/step/teachers/{id}', name: 'app_dance_teachers_show', methods: ['GET'])]
     public function showTeacherById(DanceTeacher $danceTeacher, DanceClassesRepository $danceClassesRepository, DanceTeacherRepository $danceTeacherRepository): Response
     {
         return $this->render('step_and_go/showTeacher.html.twig', [

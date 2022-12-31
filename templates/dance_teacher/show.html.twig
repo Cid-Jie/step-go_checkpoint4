@@ -13,28 +13,27 @@
                 <td>{{ dance_teacher.id }}</td>
             </tr>
             <tr>
-                <th>Firstname</th>
+                <th>Prénom</th>
                 <td>{{ dance_teacher.firstname }}</td>
             </tr>
             <tr>
-                <th>Lastname</th>
+                <th>Nom</th>
                 <td>{{ dance_teacher.lastname }}</td>
             </tr>
             <tr>
-                <th>Story</th>
+                <th>Histoire</th>
                 <td>{{ dance_teacher.story }}</td>
             </tr>
         </tbody>
     </table>
     
     <p class="text-center mt-5 mb-5">
-        <a href="{{ path('app_dance_teacher_edit', {'id': dance_teacher.id}) }}">Modifier</a>
+        <a href="{{ path('app_dance_teacher_edit', {'id': dance_teacher.id}) }}" class="btn">Modifier</a>
     </p>
     {{ include('dance_teacher/_delete_form.html.twig') }}
 
     <p class="mt-5 mb-5">
         <a href="{{ path('app_dance_teacher_index') }}">Retour à la liste des professeurs</a>
     </p>
-
 </main>
 {% endblock %}

@@ -1,40 +1,7 @@
 {{ form_start(form) }}
-<div class="message-form-content ">
-    <p class="my-custom-class-for-errors">
-    {{ form_errors(form) }}
-    </p>
-    <p class="text-center mt-5 mb-1">
-        {{ form_label(form.firstname) }}
-    </p>
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+   {{ form_widget(form) }}
     <p class="text-center mt-1 mb-5">
-        {{ form_widget(form.firstname) }}
-    </p>
-        <p class="text-center mt-5 mb-1">
-        {{ form_label(form.lastname) }}
-    </p>
-    <p class="text-center mt-1 mb-5">
-        {{ form_widget(form.lastname) }}
-    </p>
-    <p class="text-center mt-5 mb-1">
-        {{ form_label(form.story) }}
-    </p>
-    <p class="text-center mt-1 mb-5">
-        {{ form_widget(form.story) }}
-    </p>
-    <p class="text-center mt-5 mb-1">
-        {{ form_label(form.photo) }}
-    </p>
-    <p class="text-center mt-1 mb-5">
-        {{ form_widget(form.photo) }}
-    </p>
-    <p class="text-center mt-5 mb-1">
-        {{ form_label(form.danceClasses) }}
-    </p>
-    <p class="text-center mt-1 mb-5">
-        {{ form_widget(form.danceClasses) }}
-    </p>
-    <p class="text-center mt-5 mb-5">
         <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
     </p>
-</div>
 {{ form_end(form) }}

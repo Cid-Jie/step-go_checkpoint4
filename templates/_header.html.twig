@@ -52,7 +52,7 @@
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 							{% for dance_teacher in dance_teachers %}
 								<li>
-									<a class="dropdown-item" href="{{ path('app_dance_teacher_show', {'id': dance_teacher.id}) }}">{{ dance_teacher.firstname }}
+									<a class="dropdown-item" href="{{ path('app_dance_teachers_show', {'id': dance_teacher.id}) }}">{{ dance_teacher.firstname }}
 										{{ dance_teacher.lastname }} - {{ dance_teacher.danceClasses.name }}</a>
 								</li>
 							{% endfor %}
