@@ -1,65 +1,76 @@
 <template>
   <v-row class="fill-height">
     <v-col>
-      <v-sheet height="64">
+      <v-sheet height="64" width="1250">
         <v-toolbar
           flat
         >
           <v-btn
             outlined
+            class="mr-4"
+            color="darken-1"
             @click="setToday"
           >
             Aujourd'hui
           </v-btn>
+          <v-spacer></v-spacer>
           <v-btn
             fab
             text
             small
+            color="grey darken-2"
             @click="prev"
           >
             <v-icon small>
-              mdi-chevron-left
+               <
             </v-icon>
           </v-btn>
+          
           <v-toolbar-title v-if="$refs.calendar">
             {{ $refs.calendar.title.toUpperCase() }}
           </v-toolbar-title>
+         
           <v-btn
             fab
             text
             small
+            color="grey darken-2"
             @click="next"
           >
             <v-icon small>
-              mdi-chevron-right
+               >
             </v-icon>
           </v-btn>
-
           <v-spacer></v-spacer>
-          <v-menu
-            bottom
-            right
-          >
-          </v-menu>
         </v-toolbar>
       </v-sheet>
-      <v-sheet height="500">
-        <v-calendar
-          ref="calendar"
-          v-model="focus"
-          locale="FR"
-          :weekdays="weekday"
-          color="primary"
-          :events="events"
-          :event-color="getEventColor"
-          :type="type"
-          @change="updateEvents"
-        ></v-calendar>
-      </v-sheet>
+        <v-sheet height="500" width="1250">
+          <v-calendar
+            ref="calendar"
+            v-model="focus"
+            locale="FR"
+            :weekdays="weekday"
+            :events="events"
+            :event-color="getEventColor"
+            :type="type"
+            @change="updateEvents"
+          >
+
+          <template v-slot:event="{ event }">
+              <p class="text-center">
+                <br/>
+                {{ event.danceClasse }}<br/>
+                {{ event.start.substr(11) }} - {{ event.end.substr(11) }}<br/>
+                {{ event.description }}
+              </p>
+          </template>
+        
+          </v-calendar>
+        </v-sheet>
     </v-col>
   </v-row>
 </template>
-  
+
 <script>
 export default {
   data: () => ({
@@ -84,11 +95,15 @@ export default {
     next () {
       this.$refs.calendar.next()
     },
+    // Call api to retrieve all informations of the database
     updateEvents({ start, end }) {
-      fetch('/api')
+      const firstDay = start.date
+      const lastDay = end.date
+      // Add start date and end date of the week
+      fetch(`/get-events?start=${firstDay}&end=${lastDay}`)
           .then(response => response.json())
           .then(response => {
-            this.events = response;
+            this.events = response;      
           })
     },
   },

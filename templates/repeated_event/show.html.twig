@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RepeatedEvent{% endblock %}
+
+{% block body %}
+<main class="container">
+    <h1 class="text-center mt-5 mb-5">Evénement répétitif</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ repeated_event.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ repeated_event.name }}</td>
+            </tr>
+            <tr>
+                <th>Début</th>
+                <td>{{ repeated_event.start ? repeated_event.start|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Fin</th>
+                <td>{{ repeated_event.end ? repeated_event.end|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Couleur</th>
+                <td>{{ repeated_event.color }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ repeated_event.description }}</td>
+            </tr>
+            <tr>
+                <th>Jour de la semaine</th>
+                <td>{{ repeated_event.dayOfWeek }}</td>
+            </tr>
+            <tr>
+                <th>Heure de départ</th>
+                <td>{{ repeated_event.startHour }} : {{ repeated_event.startMinute }}</td>
+            </tr>
+            <tr>
+                <th>Heure de fin</th>
+                <td>{{ repeated_event.endHour }} : {{ repeated_event.endMinute }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="text-center mt-5 mb-5">
+       <a href="{{ path('app_repeated_event_edit', {'id': repeated_event.id}) }}" class="btn">Modifier</a>
+    </p>
+    {{ include('repeated_event/_delete_form.html.twig') }}
+
+    <p class="mt-5 mb-5">
+       <a href="{{ path('app_repeated_event_index') }}">Retour à la liste des événements</a>
+    </p>
+</main>    
+{% endblock %}

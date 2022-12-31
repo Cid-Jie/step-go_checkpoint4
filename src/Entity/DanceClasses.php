@@ -47,17 +47,13 @@ class DanceClasses
     #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: UserMessage::class)]
     private Collection $userMessages;
 
-    #[ORM\OneToMany(mappedBy: 'danceClass', targetEntity: EventPlanning::class)]
-    private Collection $eventPlannings;
-
-    #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: Event::class)]
-    private Collection $events;
+    // #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: Event::class)]
+    // private Collection $events;
 
     public function __construct()
     {
         $this->danceTeachers = new ArrayCollection();
         $this->userMessages = new ArrayCollection();
-        $this->eventPlannings = new ArrayCollection();
         $this->events = new ArrayCollection();
     }
 
@@ -162,64 +158,34 @@ class DanceClasses
         return $this;
     }
 
-    /**
-     * @return Collection<int, EventPlanning>
-     */
-    public function getEventPlannings(): Collection
-    {
-        return $this->eventPlannings;
-    }
+    // /**
+    //  * @return Collection<int, Event>
+    //  */
+    // public function getEvents(): Collection
+    // {
+    //     return $this->events;
+    // }
 
-    public function addEventPlanning(EventPlanning $eventPlanning): self
-    {
-        if (!$this->eventPlannings->contains($eventPlanning)) {
-            $this->eventPlannings[] = $eventPlanning;
-            $eventPlanning->setDanceClasses($this);
-        }
+    // public function addEvent(Event $event): self
+    // {
+    //     if (!$this->events->contains($event)) {
+    //         $this->events[] = $event;
+    //         $event->setDanceClasses($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function removeEventPlanning(EventPlanning $eventPlanning): self
-    {
-        if ($this->eventPlannings->removeElement($eventPlanning)) {
-            // set the owning side to null (unless already changed)
-            if ($eventPlanning->getDanceClasses() === $this) {
-                $eventPlanning->setDanceClasses(null);
-            }
-        }
+    // public function removeEvent(Event $event): self
+    // {
+    //     if ($this->events->removeElement($event)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($event->getDanceClasses() === $this) {
+    //             $event->setDanceClasses(null);
+    //         }
+    //     }
 
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Event>
-     */
-    public function getEvents(): Collection
-    {
-        return $this->events;
-    }
-
-    public function addEvent(Event $event): self
-    {
-        if (!$this->events->contains($event)) {
-            $this->events[] = $event;
-            $event->setDanceClasses($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEvent(Event $event): self
-    {
-        if ($this->events->removeElement($event)) {
-            // set the owning side to null (unless already changed)
-            if ($event->getDanceClasses() === $this) {
-                $event->setDanceClasses(null);
-            }
-        }
-
-        return $this;
-    }
+    //     return $this;
+    // }
 
 }
