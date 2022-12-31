@@ -1,6 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Codystar&family=DM+Sans&family=Outfit:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&family=Reenie+Beanie&family=WindSong:wght@500&display=swap');
 
@@ -15,5 +17,5 @@ $secondary-orange: #ffac40;
 $color-danger: rgb(221, 85, 85);
 
 $title-font: 'Codystar', sans-serif;
-$content-font: 'DM Sans', sans-serif;
+$content-font: 'Nunito', sans-serif;
 $school-font: 'Reenie Beanie', sans-serif;
