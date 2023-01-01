@@ -3,29 +3,3 @@
 @import "_header.scss";
 @import "_login.scss";
 @import "_content.scss";
-
-.body {
-    background-image: url("../images/bg_multicolor.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#event_start, #event_end, #event_timed {
-    text-align: center;
-}
-
-.scrollable {
-    overflow-x: auto;
-    overflow-y: hidden;
- }
-
- .v-btn__content {
-    color: $primary-dark;
-    font-weight: bold;
- }
-
-
-.only_date_field .input-group {
-    display: none !important;
- }

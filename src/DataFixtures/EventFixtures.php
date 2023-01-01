@@ -13,15 +13,13 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
     // Création des événements
     const EVENTS = [
         [
-            'name' => 'Cours avec Jonh Doe',
             'start' => '2023-01-14 09:00:00',
             'end' => '2023-01-14 18:00:00',
             'color' => '#FFFF00',
-            'description' => 'Spéciale Jonh Doe',
+            'description' => 'Spéciale découverte',
             'dance_class' => 'Zumba'
         ],
         [
-            'name' => 'Cours de danse',
             'start' => '2023-02-18 14:00:00',
             'end' => '2023-02-18 18:00:00',
             'color' => '#CC99FF',
@@ -29,7 +27,6 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             'dance_class' => 'Jazz'
         ],
         [
-            'name' => 'Cours de danse',
             'start' => '2023-03-11 14:00:00',
             'end' => '2023-03-11 18:00:00',
             'color' => '#CC3333',
@@ -41,7 +38,6 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
     // Création d'événements répétitifs
     const REPEAT_EVENTS = [
         [
-            'name' => 'Cours de danse',
             'start' => '2023-01-01 00:00:00',
             'end' => '2024-01-03 23:59:59',
             'color' => '#FF6600',
@@ -54,7 +50,6 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             'end_minute' => '0'
         ],
         [
-            'name' => 'Cours de danse',
             'start' => '2023-01-02 00:00:00',
             'end' => '2024-01-03 23:59:59',
             'color' => '#CCCC00',
@@ -67,7 +62,6 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             'end_minute' => '0'
         ],
         [
-            'name' => 'Cours de danse',
             'start' => '2023-01-01 00:00:00',
             'end' => '2024-01-03 23:59:59',
             'color' => '#FFFF00',
@@ -80,7 +74,6 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             'end_minute' => '0'
         ],
         [
-            'name' => 'Cours de danse',
             'start' => '2023-01-04 00:00:00',
             'end' => '2024-01-04 23:59:59',
             'color' => '#FF3300',
@@ -100,7 +93,6 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
         foreach (self::EVENTS as $events) {
             $newEvents = new Event();
             $newEvents
-                ->setName($events['name'])
                 ->setStart(new \DateTime($events['start']))
                 ->setEnd(new \DateTime($events['end']))
                 ->setColor($events['color'])
@@ -115,7 +107,6 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
         foreach (self::REPEAT_EVENTS as $repeat_events) {
             $new_repeat_events = new RepeatedEvent();
             $new_repeat_events
-                ->setName($repeat_events['name'])
                 ->setStart(new \DateTime($repeat_events['start']))
                 ->setEnd(new \DateTime($repeat_events['end']))
                 ->setColor($repeat_events['color'])

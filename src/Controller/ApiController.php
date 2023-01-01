@@ -104,8 +104,7 @@ class ApiController extends AbstractController
                     $eventTransformed
                         ->setDanceClasses($eventFromDatabase->getDanceClasses())
                         ->setColor($eventFromDatabase->getColor())
-                        ->setDescription($eventFromDatabase->getDescription())
-                        ->setName($eventFromDatabase->getName());
+                        ->setDescription($eventFromDatabase->getDescription());
                     
                     // La date de début est générée avant pour vérifier si l'événeemnt rentre dans les bonnes conditions
                     // donc on génére juste la date de fin à partir des informations et du créneau
@@ -119,7 +118,6 @@ class ApiController extends AbstractController
 
                 }
             }
-
             
             // On push l'événement répétitif dans le nouveau tableau crée au début
             if ($eventTransformed !== null) {
@@ -132,7 +130,6 @@ class ApiController extends AbstractController
         foreach ($calculatedEvents as $event) {
             $eventArray[] = [
                 'id' => $event->getId(),
-                'name' => $event->getDanceClasses()->getName(),
                 'start' => $event->getStart()->format('Y-m-d H:i'),
                 'end' => $event->getEnd()->format('Y-m-d H:i'),
                 'color' => $event->getColor(),

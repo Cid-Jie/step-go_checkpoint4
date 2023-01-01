@@ -13,7 +13,6 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
                 <th>Début</th>
                 <th>Fin</th>
                 <th>Couleur</th>
@@ -28,7 +27,6 @@
         {% for repeated_event in repeated_events %}
             <tr>
                 <td>{{ repeated_event.id }}</td>
-                <td>{{ repeated_event.name }}</td>
                 <td>{{ repeated_event.start ? repeated_event.start|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ repeated_event.end ? repeated_event.end|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ repeated_event.color }}</td>

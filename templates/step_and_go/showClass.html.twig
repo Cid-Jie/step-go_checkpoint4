@@ -3,15 +3,17 @@
 {% block title %}Step and Go{% endblock %}
 
 {% block body %}
-<div>
-    <h1 class="text-center mt-5 mb-5">{{ dance_class.name }}</h1>
-</div>
+<main class="container">
+    <div class="dance_title">
+        <h1 class="text-center mt-5 mb-5">{{ dance_class.name|upper }}</h1>
+    </div>
 
-<div class="text-center">
-    <img class="photo_classes" src="{{ dance_class.poster }}" alt="photo dance class">
-</div>
+    <div class="text-center">
+        <img class="photo_classes" src="{{ dance_class.poster }}" alt="photo dance class">
+    </div>
 
-<p class="content mt-5 mb-5">
-    {{ dance_class.description }}    
-</p>
+    <p class="content mt-5 mb-5">
+        {{ dance_class.description }}    
+    </p>
+</main>
 {% endblock %}

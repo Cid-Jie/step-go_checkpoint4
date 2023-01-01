@@ -17,9 +17,6 @@ class Event
     #[ORM\Column()]
     protected ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    protected ?string $name = null;
-
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     protected ?\DateTimeInterface $start = null;
 
@@ -40,18 +37,6 @@ class Event
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     public function getStart(): ?\DateTimeInterface

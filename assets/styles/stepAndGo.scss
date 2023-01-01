@@ -1,6 +1,14 @@
 @import "_var.scss";
 
-//Accueil Step And Go
+// Body
+.body {
+    background-image: url("../images/bg_multicolor.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+// Page d'accueil Step And Go
 #photo-accueil {
     width: 100%;
     height: 600px;
@@ -17,7 +25,7 @@
     margin-left: 200px;
     margin-right: 200px;
     color: $primary-dark;
-    font-size: 14px;
+    font-size: 0.9em;
     font-family: $content-font;
 }
 
@@ -37,10 +45,10 @@
         }
         .carousel-title {
             margin-top: 20px;
-            font-size: 1em;
             text-align: center;
             color: $primary-dark;
-            font-family: $content-font;
+            font-size: 0.9em;
+            font-family: $content-font
         }
         .bouton {
             position: absolute;
@@ -76,28 +84,58 @@
 }
 
 //Dance Classes //Dance Teachers
+.dance_title {
+    h1 {
+        font-family: $content-font;
+        font-size: 2em;
+    }
+}
+
+.dance_teacher_title {
+    h2 {
+        font-family: $content-font;
+        font-size: 1.4em;
+    }
+}
+
 .photo_classes, .photo_teacher {
     width: 400px;
 }
 
-p {
+.content {
     vertical-align: middle;
     line-height: normal;
+    p {
+        font-size: 0.9em;
+        font-family: $content-font
+    }
 }
 
 //Planning
-.event-title {
-    font-weight: bold;
+#event_start, #event_end, #event_timed {
+    text-align: center;
 }
 
-.event-description {
-    font-style: italic;
-    font-size: 0.8em;
-}
+.scrollable {
+    overflow-x: auto;
+    overflow-y: hidden;
+ }
+
+ .v-btn__content {
+    color: $primary-dark;
+    font-weight: bold;
+ }
+
+.only_date_field .input-group {
+    display: none !important;
+ }
 
 //Tarifs
 .content-register {
     text-align: justify;
+    font-family: $content-font;
+    font-size: 0.9em;
+    font-family: $content-font
 }
 
 //Contact
@@ -141,6 +179,16 @@ p {
                 width: 100%;
                 height: auto;
             }
+            .bouton {
+                width: 35px;
+                top: 30%;
+            }
         }
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    #photo-accueil {
+        width: 100%;
     }
 }

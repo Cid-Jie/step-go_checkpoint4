@@ -30,7 +30,6 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
                 <th>Début</th>
                 <th>Fin</th>
                 <th>Couleur</th>
@@ -43,7 +42,6 @@
         {% for event in events %}
             <tr>
                 <td>{{ event.id }}</td>
-                <td>{{ event.name }}</td>
                 <td>{{ event.start ? event.start|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ event.end ? event.end|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ event.color }}</td>
