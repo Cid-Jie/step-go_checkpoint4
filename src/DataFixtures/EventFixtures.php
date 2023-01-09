@@ -44,9 +44,9 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             'description' => 'Débutants',
             'dance_class' => 'Danse africaine',
             'day_of_week' => 'thursday',
-            'start_hour' => '8',
+            'start_hour' => '19',
             'start_minute' => '0',
-            'end_hour' => '10',
+            'end_hour' => '20',
             'end_minute' => '0'
         ],
         [
@@ -56,9 +56,9 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             'description' => 'Avancés',
             'dance_class' => 'Jazz',
             'day_of_week' => 'tuesday',
-            'start_hour' => '16',
+            'start_hour' => '18',
             'start_minute' => '0',
-            'end_hour' => '18',
+            'end_hour' => '19',
             'end_minute' => '0'
         ],
         [
@@ -68,9 +68,9 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             'description' => 'Intermédiaires',
             'dance_class' => 'Danse Bollywood',
             'day_of_week' => 'friday',
-            'start_hour' => '10',
+            'start_hour' => '21',
             'start_minute' => '0',
-            'end_hour' => '12',
+            'end_hour' => '22',
             'end_minute' => '0'
         ],
         [
@@ -80,9 +80,9 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             'description' => 'Avancés',
             'dance_class' => 'Flamenco',
             'day_of_week' => 'wednesday',
-            'start_hour' => '14',
+            'start_hour' => '20',
             'start_minute' => '0',
-            'end_hour' => '16',
+            'end_hour' => '21',
             'end_minute' => '0'
         ],
     ];

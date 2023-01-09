@@ -26,7 +26,7 @@
                 <td>{{ dance_teacher.id }}</td>
                 <td>{{ dance_teacher.firstname }}</td>
                 <td>{{ dance_teacher.lastname }}</td>
-                <td>{{ dance_teacher.story }}</td>
+                <td>{{ dance_teacher.story|striptags|slice(0,60) }}</td>
                 <td>{{ dance_teacher.danceClasses.name }}</td>
                 <td>
                     <a href="{{ path('app_dance_teacher_show', {'id': dance_teacher.id}) }}">Voir</a>

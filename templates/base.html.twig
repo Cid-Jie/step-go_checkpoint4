@@ -10,6 +10,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 
         <meta name="viewport" content="width=device-width">
+        {# Le initial-scale=1.0 signifie au navigateur qu’il doit initialiser les dimensions en se basant sur le pixel-ratio du système, et le user-scalable=yes autorise l’utilisateur à zoomer s’il le souhaite #}
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
         
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -20,7 +22,7 @@
         {% endblock %}
 
     </head>
-    <body class="body">
+    <body>
         {% include '_header.html.twig' %}
         {% block body %}{% endblock %}
         {% include '_footer.html.twig' %}

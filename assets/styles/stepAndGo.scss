@@ -1,11 +1,17 @@
 @import "_var.scss";
 
 // Body
-.body {
+html, body {
     background-image: url("../images/bg_multicolor.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 // Page d'accueil Step And Go
@@ -152,6 +158,21 @@
     border-radius: 10px;
 }
 
+.carte_responsive {
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+
+.carte_responsive iframe {
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
 @media screen and (max-width: 768px) {
     .content {
         margin-left: 20px;
@@ -172,7 +193,7 @@
     }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 650px) {
     .carousel {
         #container-carousel {
             .photo-carousel {
@@ -187,8 +208,9 @@
     }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (min-width: 1024px) {
     #photo-accueil {
         width: 100%;
+        height: 500px;
     }
 }

@@ -55,8 +55,13 @@ a.nav-link.dropdown-toggle {
     }
 }
 
-.footer {
+.sticky-footer {
     border-top: 1.5px solid $secondary-orange;
+    background-color: $primary-white;
+    color: $primary-dark;
+    margin-top: auto;
+    margin-bottom: 0;
+    width: 100%;
 }
 
 #logo-login {

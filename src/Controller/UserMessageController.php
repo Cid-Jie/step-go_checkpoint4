@@ -33,8 +33,6 @@ class UserMessageController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            
-
             $this->addFlash('success', 'Merci, votre message a bien été envoyé, nous vous répondrons rapidement.');
 
             $userMessageRepository->add($userMessage, true);

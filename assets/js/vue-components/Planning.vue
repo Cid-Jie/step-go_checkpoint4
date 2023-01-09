@@ -58,10 +58,8 @@
 
           <template v-slot:event="{ event }">
               <p class="text-center">
-                <br/>
                 {{ event.danceClasse }}<br/>
-                {{ event.start.substr(11) }} - {{ event.end.substr(11) }}<br/>
-                {{ event.description }}
+                {{ event.start.substr(11) }} - {{ event.end.substr(11) }} ({{ event.description }})<br/>
               </p>
           </template>
         
