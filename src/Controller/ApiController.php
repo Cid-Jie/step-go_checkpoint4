@@ -57,13 +57,13 @@ class ApiController extends AbstractController
             $stringifyWeekDifference = 'this';
         }
         if($weekDifference > 0) {
-            $stringifyWeekDifference = '+' . $requestedWeekNumber;
+            $stringifyWeekDifference = '+' . $stringifyWeekDifference;
         }
         if($weekDifference < 0) {
-            $stringifyWeekDifference = '-' . $stringifyWeekDifference;
+            $stringifyWeekDifference = '-' .  $stringifyWeekDifference;
         }
         
-       // dd($requestedWeekNumber, $currentWeekNumber, $weekDifference, $stringifyWeekDifference);
+      // dd($requestedWeekNumber, $currentWeekNumber, $weekDifference, $stringifyWeekDifference);
 
         /**
          * On créé un nouveau tableau vide puis on boucle sur tous les événements pour extraire
@@ -106,7 +106,7 @@ class ApiController extends AbstractController
                         ->setColor($eventFromDatabase->getColor())
                         ->setDescription($eventFromDatabase->getDescription());
                     
-                    // La date de début est générée avant pour vérifier si l'événeemnt rentre dans les bonnes conditions
+                    // La date de début est générée avant pour vérifier si l'événemnet rentre dans les bonnes conditions
                     // donc on génére juste la date de fin à partir des informations et du créneau
                     $eventNextIterationEnd = new \DateTime($eventNextIterationDay);
                     $eventNextIterationEnd->setTime($eventFromDatabase->getEndHour(), $eventFromDatabase->getEndMinute());

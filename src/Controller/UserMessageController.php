@@ -32,6 +32,11 @@ class UserMessageController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            
+
+            $this->addFlash('success', 'Merci, votre message a bien été envoyé, nous vous répondrons rapidement.');
+
             $userMessageRepository->add($userMessage, true);
 
             return $this->redirectToRoute('app_step_and_go', [], Response::HTTP_SEE_OTHER);
