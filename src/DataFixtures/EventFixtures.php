@@ -13,24 +13,24 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
     // Création des événements
     const EVENTS = [
         [
-            'start' => '2023-01-14 09:00:00',
+            'start' => '2023-01-14 15:00:00',
             'end' => '2023-01-14 18:00:00',
             'color' => '#FFFF00',
-            'description' => 'Spéciale découverte',
+            'description' => 'Tous niveaux',
             'dance_class' => 'Zumba'
         ],
         [
-            'start' => '2023-02-18 14:00:00',
+            'start' => '2023-02-18 15:00:00',
             'end' => '2023-02-18 18:00:00',
             'color' => '#CC99FF',
-            'description' => 'Spécial découverte',
+            'description' => 'Tous niveaux',
             'dance_class' => 'Jazz'
         ],
         [
-            'start' => '2023-03-11 14:00:00',
+            'start' => '2023-03-11 15:00:00',
             'end' => '2023-03-11 18:00:00',
             'color' => '#CC3333',
-            'description' => 'Spécial découverte',
+            'description' => 'Tous niveaux',
             'dance_class' => 'Breakdance'
         ],
     ];

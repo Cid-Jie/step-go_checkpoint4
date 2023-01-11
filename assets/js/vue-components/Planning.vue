@@ -53,6 +53,7 @@
             :events="events"
             :event-color="getEventColor"
             :type="type"
+            :first-interval=12
             @change="updateEvents"
           >
 
@@ -76,6 +77,7 @@ export default {
     type: 'week',
     weekday: [1, 2, 3, 4, 5, 6, 0],
     events: [],
+    firstInterval: 9,
   }),
   mounted () {
     this.$refs.calendar.checkChange()
