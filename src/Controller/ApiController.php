@@ -23,8 +23,7 @@ class ApiController extends AbstractController
     #[Route('/get-events', name: 'app_get_events')]
     public function index(EventRepository $eventRepository, Request $request): Response
     {
-
-        // On récupère le premier et le dernier jour de la semaine
+        // On récupère le premier et le dernier jour de la semaine courante
         $firstDay = $request->query->get('start');
         $lastDay = $request->query->get('end');
 
@@ -33,18 +32,17 @@ class ApiController extends AbstractController
         $lastDay = new \DateTime($lastDay);
         $lastDay->setTime(23,59,59);
 
-        // On récupère le numéro de la semaine
+        // On récupère le numéro et l'année de la semaine en requête
         $requestedWeekNumber = intval($firstDay->format("W"));
-        
-        // On récupére tous les événements et événements répétitifs en bdd compris dans la semaine
-        $eventsFromDatabase = $eventRepository->findByWeek($firstDay, $lastDay);
+        $requestedYearNumber = intval($firstDay->format("Y"));
 
-        // On trouve la semaine actuelle en fonction de today
+        // On trouve la semaine et l'année actuelle en fonction de today
         $today = new \DateTime('now');
         $currentWeekNumber = intval($today->format("W"));
+        $currentYearNumber = intval($today->format("Y"));
 
         // On comparer cette semaine à celle demandée dans la requête
-        $weekDifference =  $currentWeekNumber - $requestedWeekNumber;
+        $weekDifference =   $requestedWeekNumber - $currentWeekNumber;
 
         /**  Rendu compatible pour le strtotime
         * monday -1 week => renvoi au lundi de la semaine courante (si déjà passé)
@@ -52,6 +50,7 @@ class ApiController extends AbstractController
         * monday +1 week => renvoi au lundi de la semaine prochaine (si lundi est déjà passé cette semaine)
         * monday this week => renvoi le lundi de cette semaine
         */
+        // TODO : problème d'affichages à gerer // mauvaise génération des events 
         $stringifyWeekDifference = $weekDifference - 1;
         if($weekDifference == 0) {
             $stringifyWeekDifference = 'this';
@@ -63,7 +62,10 @@ class ApiController extends AbstractController
             $stringifyWeekDifference = '-' .  $stringifyWeekDifference;
         }
         
-      // dd($requestedWeekNumber, $currentWeekNumber, $weekDifference, $stringifyWeekDifference);
+       // dd($requestedWeekNumber, $currentWeekNumber, $weekDifference, $stringifyWeekDifference);
+        
+        // On récupére tous les événements et événements répétitifs en bdd compris dans la semaine
+        $eventsFromDatabase = $eventRepository->findByWeek($firstDay, $lastDay);
 
         /**
          * On créé un nouveau tableau vide puis on boucle sur tous les événements pour extraire
