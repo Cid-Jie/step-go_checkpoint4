@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Event;
 use App\Entity\RepeatedEvent;
 use App\Repository\EventRepository;
+use DateInterval;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,38 +33,6 @@ class ApiController extends AbstractController
         $lastDay = new \DateTime($lastDay);
         $lastDay->setTime(23,59,59);
 
-        // On récupère le numéro et l'année de la semaine en requête
-        $requestedWeekNumber = intval($firstDay->format("W"));
-        $requestedYearNumber = intval($firstDay->format("Y"));
-
-        // On trouve la semaine et l'année actuelle en fonction de today
-        $today = new \DateTime('now');
-        $currentWeekNumber = intval($today->format("W"));
-        $currentYearNumber = intval($today->format("Y"));
-
-        // On comparer cette semaine à celle demandée dans la requête
-        $weekDifference =   $requestedWeekNumber - $currentWeekNumber;
-
-        /**  Rendu compatible pour le strtotime
-        * monday -1 week => renvoi au lundi de la semaine courante (si déjà passé)
-        * monday +0 week => renvoi au lundi prochain 
-        * monday +1 week => renvoi au lundi de la semaine prochaine (si lundi est déjà passé cette semaine)
-        * monday this week => renvoi le lundi de cette semaine
-        */
-        // TODO : problème d'affichages à gerer // mauvaise génération des events 
-        $stringifyWeekDifference = $weekDifference - 1;
-        if($weekDifference == 0) {
-            $stringifyWeekDifference = 'this';
-        }
-        if($weekDifference > 0) {
-            $stringifyWeekDifference = '+' . $stringifyWeekDifference;
-        }
-        if($weekDifference < 0) {
-            $stringifyWeekDifference = '-' .  $stringifyWeekDifference;
-        }
-        
-       // dd($requestedWeekNumber, $currentWeekNumber, $weekDifference, $stringifyWeekDifference);
-        
         // On récupére tous les événements et événements répétitifs en bdd compris dans la semaine
         $eventsFromDatabase = $eventRepository->findByWeek($firstDay, $lastDay);
 
@@ -83,17 +52,24 @@ class ApiController extends AbstractController
                 $repetitionStart = $eventFromDatabase->getStart()->setTime(0, 0);
                 $repetitionEnd = $eventFromDatabase->getEnd()->setTime(23, 59);
 
-                /** On génére la date de la prochaine itération à partir d'une chaine de caractère
-                 * Par exemple : 
-                 * Nous sommes le samedi 17 décembre 2022 (semaine numero 50)
-                 * $eventFromDatabase->getDayOfWeek() = jeudi
-                 * $stringifyWeekDifference = 1 -> semaine numéro 51
-                 * strtotime renvoi au format demandé Y-m-d => "2022-12-22"
-                 */
+                $daysFromFirstday = match($eventFromDatabase->getDayOfWeek()) {
+                    'monday' => 0,
+                    'tuesday' => 1,
+                    'wednesday' => 2,
+                    'thursday' => 3,
+                    'friday' => 4,
+                    'saturday' => 5,
+                    'sunday' => 6
+                };
+
+                $eventNextIterationDay = new \DateTime($request->query->get('start'));
+                $dateInterval = new DateInterval("P".$daysFromFirstday."D");
+             
+                $eventNextIterationDay = date_add($eventNextIterationDay, $dateInterval);
                 
                 // On vérifie si la prochaine itération peut exister entre la date de début et la date de fin
-                $eventNextIterationDay = date('Y-m-d', strtotime("{$eventFromDatabase->getDayOfWeek()} {$stringifyWeekDifference} week"));
-                $eventNextIterationStart = (new \DateTime($eventNextIterationDay))->setTime($eventFromDatabase->getStartHour(), $eventFromDatabase->getStartMinute());
+             
+                $eventNextIterationStart = $eventNextIterationDay->setTime($eventFromDatabase->getStartHour(), $eventFromDatabase->getStartMinute());
                 $isValidIteration = $eventNextIterationStart > $repetitionStart && $eventNextIterationStart < $repetitionEnd;
                 
                 $eventTransformed = null;
@@ -110,7 +86,9 @@ class ApiController extends AbstractController
                     
                     // La date de début est générée avant pour vérifier si l'événemnet rentre dans les bonnes conditions
                     // donc on génére juste la date de fin à partir des informations et du créneau
-                    $eventNextIterationEnd = new \DateTime($eventNextIterationDay);
+                    $eventNextIterationEnd = new \DateTime($request->query->get('start'));
+                    $dateInterval = new DateInterval("P".$daysFromFirstday."D");
+                    $eventNextIterationEnd = date_add($eventNextIterationEnd, $dateInterval);
                     $eventNextIterationEnd->setTime($eventFromDatabase->getEndHour(), $eventFromDatabase->getEndMinute());
 
                     // On extrait les dates et créneau de l'événement
@@ -142,4 +120,9 @@ class ApiController extends AbstractController
        
         return new JsonResponse($eventArray);
     }
+
+
+    
 }
+
+
