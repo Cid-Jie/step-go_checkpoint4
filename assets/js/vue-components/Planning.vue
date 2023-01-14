@@ -53,7 +53,8 @@
             :events="events"
             :event-color="getEventColor"
             :type="type"
-            :first-interval=12
+            interval-count=14
+            first-interval=11
             @change="updateEvents"
           >
 
@@ -69,6 +70,7 @@
     </v-col>
   </v-row>
 </template>
+
 
 <script>
 export default {

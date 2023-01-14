@@ -48,7 +48,6 @@ class StepAndGoController extends AbstractController
         return $this->render('step_and_go/planning.html.twig', [
             'dance_classes' => $danceClassesRepository->findAll(),
             'dance_teachers' => $danceTeacherRepository->findAll(),
-            'events' => $eventRepository->findAll(),
         ]);
     }
 
