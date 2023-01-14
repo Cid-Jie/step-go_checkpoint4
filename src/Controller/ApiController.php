@@ -108,13 +108,19 @@ class ApiController extends AbstractController
         $eventArray = [];
 
         foreach ($calculatedEvents as $event) {
+            
+            $danceClassName = '';
+            if($event->getDanceClasses()) {
+                $danceClassName = $event->getDanceClasses()->getName();
+            }
+
             $eventArray[] = [
                 'id' => $event->getId(),
                 'start' => $event->getStart()->format('Y-m-d H:i'),
                 'end' => $event->getEnd()->format('Y-m-d H:i'),
                 'color' => $event->getColor(),
                 'description' => $event->getDescription(),
-                'danceClasse' => $event->getDanceClasses()->getName(),
+                'danceClasse' =>  $danceClassName,
             ];
         }
        

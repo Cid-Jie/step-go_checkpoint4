@@ -22,6 +22,7 @@ class BaseEventType extends AbstractType
                 'label' => 'Description',
             ])
             ->add('danceClasses', EntityType::class, [
+                'required' => false,
                 'class' => DanceClasses::class,
                 'choice_label' => 'name',
                 'label' => 'Cours de danse : ',
