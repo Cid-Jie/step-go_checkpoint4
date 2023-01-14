@@ -53,15 +53,16 @@
             :events="events"
             :event-color="getEventColor"
             :type="type"
-            interval-count=14
-            first-interval=11
+            interval-count=16
+            first-time=9
             @change="updateEvents"
           >
 
           <template v-slot:event="{ event }">
               <p class="text-center">
                 {{ event.danceClasse }}<br/>
-                {{ event.start.substr(11) }} - {{ event.end.substr(11) }} <span class="text-italic">{{ event.description }}</span><br/>
+                {{ event.start.substr(11) }} - {{ event.end.substr(11) }} 
+                <span class="font-italic">{{ event.description }}</span><br/>
               </p>
           </template>
         

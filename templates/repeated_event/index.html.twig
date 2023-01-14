@@ -32,7 +32,11 @@
                 <td>{{ repeated_event.end ? repeated_event.end|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ repeated_event.color }}</td>
                 <td>{{ repeated_event.description }}</td>
-                <td>{{ repeated_event.danceClasses.name }}</td>
+                {% if repeated_event.danceClasses.name is defined %}
+                    <td>{{ repeated_event.danceClasses.name }}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
                 <td>{{ repeated_event.dayOfWeek }}</td>
                 <td>{{ repeated_event.startHour }} : {{ repeated_event.startMinute }}</td>
                 <td>{{ repeated_event.endHour }} : {{ repeated_event.endMinute }}</td>

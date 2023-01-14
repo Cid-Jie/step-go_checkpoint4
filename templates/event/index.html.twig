@@ -46,7 +46,11 @@
                 <td>{{ event.end ? event.end|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ event.color }}</td>
                 <td>{{ event.description }}</td>
-                <td>{{ event.danceClasses.name }}</td>
+                {% if event.danceClasses.name is defined %}
+                    <td>{{ event.danceClasses.name }}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
                 <td>
                     <a href="{{ path('app_event_show', {'id': event.id}) }}">Voir</a>
                     <a href="{{ path('app_event_edit', {'id': event.id}) }}">Modifier</a>
