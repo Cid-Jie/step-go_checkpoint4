@@ -119,10 +119,7 @@ class ApiController extends AbstractController
         }
        
         return new JsonResponse($eventArray);
-    }
-
-
-    
+    }  
 }
 
 

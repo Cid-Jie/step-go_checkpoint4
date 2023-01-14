@@ -32,6 +32,7 @@ class Event
     protected ?DanceClasses $danceClasses = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Merci de remplir ce champ.')]
     protected ?string $description = null;
 
     public function getId(): ?int
