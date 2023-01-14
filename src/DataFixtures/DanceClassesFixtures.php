@@ -34,7 +34,7 @@ class DanceClassesFixtures extends Fixture
         'poster' => "https://images.pexels.com/photos/5005535/pexels-photo-5005535.jpeg"
         ],
         ['name' => 'Zumba',
-        'description' => 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+        'description' => 'Venue de Colombie, la Zumba est une activité mêlant chorégraphies de danse et mouvements de fitness sur de la musique entraînante. Le plus souvent, les chorégraphies sont inspirées de danses latines (salsa, kuduro, flamenco, samba...) mais peuvent également reprendre des mouvements de danse orientale ou modern\' jazz. En plus d\'être très amusante à pratiquer, la Zumba permet de brûler de nombreuses calories, de se muscler, et de travailler son cardio et sa coordination',
         'poster' => "https://cdn.pixabay.com/photo/2017/06/08/01/47/zumba-2382200_960_720.jpg"
         ],
         ['name' => 'Danse Bollywood',

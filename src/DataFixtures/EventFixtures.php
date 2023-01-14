@@ -13,23 +13,23 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
     // Création des événements
     const EVENTS = [
         [
-            'start' => '2023-01-14 15:00:00',
-            'end' => '2023-01-14 18:00:00',
-            'color' => '#FFFF00',
+            'start' => '2023-01-14 14:00:00',
+            'end' => '2023-01-14 17:00:00',
+            'color' => '#d54761',
             'description' => 'Tous niveaux',
-            'dance_class' => 'Zumba'
+            'dance_class' => 'Flamenco'
         ],
         [
-            'start' => '2023-02-18 15:00:00',
-            'end' => '2023-02-18 18:00:00',
-            'color' => '#CC99FF',
+            'start' => '2023-02-18 14:00:00',
+            'end' => '2023-02-18 17:00:00',
+            'color' => '#CCCC00',
             'description' => 'Tous niveaux',
-            'dance_class' => 'Jazz'
+            'dance_class' => 'Modern\' Jazz'
         ],
         [
-            'start' => '2023-03-11 15:00:00',
-            'end' => '2023-03-11 18:00:00',
-            'color' => '#CC3333',
+            'start' => '2023-03-11 14:00:00',
+            'end' => '2023-03-11 17:00:00',
+            'color' => '#fce94f',
             'description' => 'Tous niveaux',
             'dance_class' => 'Breakdance'
         ],
@@ -40,7 +40,7 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
         [
             'start' => '2023-01-01 00:00:00',
             'end' => '2024-01-03 23:59:59',
-            'color' => '#FF6600',
+            'color' => '#f57900',
             'description' => 'Débutants',
             'dance_class' => 'Danse africaine',
             'day_of_week' => 'thursday',
@@ -53,8 +53,8 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             'start' => '2023-01-02 00:00:00',
             'end' => '2024-01-03 23:59:59',
             'color' => '#CCCC00',
-            'description' => 'Avancés',
-            'dance_class' => 'Jazz',
+            'description' => 'Débutants',
+            'dance_class' => 'Modern\' Jazz',
             'day_of_week' => 'tuesday',
             'start_hour' => '18',
             'start_minute' => '0',
@@ -64,7 +64,7 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
         [
             'start' => '2023-01-01 00:00:00',
             'end' => '2024-01-03 23:59:59',
-            'color' => '#FFFF00',
+            'color' => '#ad7fa8',
             'description' => 'Intermédiaires',
             'dance_class' => 'Danse Bollywood',
             'day_of_week' => 'friday',
@@ -76,10 +76,58 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
         [
             'start' => '2023-01-04 00:00:00',
             'end' => '2024-01-04 23:59:59',
-            'color' => '#FF3300',
+            'color' => '#d54761',
             'description' => 'Avancés',
             'dance_class' => 'Flamenco',
             'day_of_week' => 'wednesday',
+            'start_hour' => '20',
+            'start_minute' => '0',
+            'end_hour' => '21',
+            'end_minute' => '0'
+        ],
+        [
+            'start' => '2023-01-01 00:00:00',
+            'end' => '2024-01-03 23:59:59',
+            'color' => '#729fcf',
+            'description' => 'Tous niveaux',
+            'dance_class' => 'Zumba',
+            'day_of_week' => 'monday',
+            'start_hour' => '19',
+            'start_minute' => '0',
+            'end_hour' => '20',
+            'end_minute' => '0'
+        ],
+        [
+            'start' => '2023-01-02 00:00:00',
+            'end' => '2024-01-03 23:59:59',
+            'color' => '#8047ad',
+            'description' => 'Avancés',
+            'dance_class' => 'Danse contemporaine',
+            'day_of_week' => 'tuesday',
+            'start_hour' => '20',
+            'start_minute' => '0',
+            'end_hour' => '21',
+            'end_minute' => '0'
+        ],
+        [
+            'start' => '2023-01-01 00:00:00',
+            'end' => '2024-01-03 23:59:59',
+            'color' => '#fce94f',
+            'description' => 'Intermédiaires',
+            'dance_class' => 'Breakdance',
+            'day_of_week' => 'wednesday',
+            'start_hour' => '19',
+            'start_minute' => '0',
+            'end_hour' => '20',
+            'end_minute' => '0'
+        ],
+        [
+            'start' => '2023-01-04 00:00:00',
+            'end' => '2024-01-04 23:59:59',
+            'color' => '#CCCC00',
+            'description' => 'Avancés',
+            'dance_class' => 'Modern\' Jazz',
+            'day_of_week' => 'friday',
             'start_hour' => '20',
             'start_minute' => '0',
             'end_hour' => '21',

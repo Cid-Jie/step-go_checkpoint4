@@ -17,6 +17,7 @@
                 <th>Fin</th>
                 <th>Couleur</th>
                 <th>Description</th>
+                <th>Cours de danse</th>
                 <th>Jour de la semaine</th>
                 <th>Heure de départ</th>
                 <th>Heure de fin</th>
@@ -31,6 +32,7 @@
                 <td>{{ repeated_event.end ? repeated_event.end|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ repeated_event.color }}</td>
                 <td>{{ repeated_event.description }}</td>
+                <td>{{ repeated_event.danceClasses.name }}</td>
                 <td>{{ repeated_event.dayOfWeek }}</td>
                 <td>{{ repeated_event.startHour }} : {{ repeated_event.startMinute }}</td>
                 <td>{{ repeated_event.endHour }} : {{ repeated_event.endMinute }}</td>
@@ -46,5 +48,8 @@
         {% endfor %}
         </tbody>
     </table>
+    <p class="mt-5 mb-5">
+        <a href="{{ path('app_event_index') }}">Retour au planning</a>
+    </p>
 </main>
 {% endblock %}

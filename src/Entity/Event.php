@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\EventRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
 #[ORM\InheritanceType('SINGLE_TABLE')]
@@ -26,12 +27,12 @@ class Event
     #[ORM\Column(length: 7)]
     protected ?string $color = null;
 
-    // #[ORM\ManyToOne(inversedBy: 'events')]
     #[ORM\ManyToOne(targetEntity: DanceClasses::class)]
     #[ORM\JoinColumn(name: 'dance_class_id', referencedColumnName: 'id')]
     protected ?DanceClasses $danceClasses = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Merci de remplir ce champ.')]
     protected ?string $description = null;
 
     public function getId(): ?int

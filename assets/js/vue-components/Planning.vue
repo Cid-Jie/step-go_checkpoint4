@@ -22,7 +22,7 @@
             @click="prev"
           >
             <v-icon small>
-               <
+              &lt;
             </v-icon>
           </v-btn>
           
@@ -38,7 +38,7 @@
             @click="next"
           >
             <v-icon small>
-               >
+               &gt;
             </v-icon>
           </v-btn>
           <v-spacer></v-spacer>
@@ -53,14 +53,15 @@
             :events="events"
             :event-color="getEventColor"
             :type="type"
-            :first-interval=12
+            interval-count=14
+            first-interval=11
             @change="updateEvents"
           >
 
           <template v-slot:event="{ event }">
               <p class="text-center">
                 {{ event.danceClasse }}<br/>
-                {{ event.start.substr(11) }} - {{ event.end.substr(11) }} ({{ event.description }})<br/>
+                {{ event.start.substr(11) }} - {{ event.end.substr(11) }} <span class="text-italic">{{ event.description }}</span><br/>
               </p>
           </template>
         
@@ -70,6 +71,7 @@
   </v-row>
 </template>
 
+
 <script>
 export default {
   data: () => ({
@@ -77,7 +79,6 @@ export default {
     type: 'week',
     weekday: [1, 2, 3, 4, 5, 6, 0],
     events: [],
-    firstInterval: 9,
   }),
   mounted () {
     this.$refs.calendar.checkChange()
