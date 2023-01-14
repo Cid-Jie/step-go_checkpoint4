@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventRepository;
+use App\Repository\RepeatedEventRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

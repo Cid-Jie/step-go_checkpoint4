@@ -36,7 +36,7 @@ class DanceTeacherFixtures extends Fixture
         ['firstname' => 'Charlotte',
         'lastname' => 'Vinet',
         'photo' => 'https://images.pexels.com/photos/6453882/pexels-photo-6453882.jpeg',
-        'story' => 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing',
+        'story' => 'Petite, Charlotte a beaucoup pratiqué la danse classique et les danses latines. Elle a même été championne de France de salsa à l\'âge de 14 ans. Elle s\'est ensuite tournée vers le sport et est devenue professeur de Fitness pendant plusieurs années. Depuis 2019, Charlotte mêle ses deux passions, la danse et le fitness, en donnant des cours de Zumba. Ses cours sont accessibles à tous les niveaux. Son objectif est que chacun s\'amuse, et que l\'effort devienne agréable.',
         'dance_classes_id' =>  'Zumba'
         ],
         ['firstname' => 'Chris',

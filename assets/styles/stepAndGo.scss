@@ -31,7 +31,7 @@ body {
     margin-left: 200px;
     margin-right: 200px;
     color: $primary-dark;
-    font-size: 0.9em;
+    font-size: 1em;
     font-family: $content-font;
 }
 
@@ -46,14 +46,14 @@ body {
     #container-carousel {
         position: relative;
         .photo-carousel {
-            width: 900px;
+            width: 100%;
             height: 500px;
         }
         .carousel-title {
             margin-top: 20px;
             text-align: center;
             color: $primary-dark;
-            font-size: 0.9em;
+            font-size: 1em;
             font-family: $content-font
         }
         .bouton {
@@ -105,14 +105,14 @@ body {
 }
 
 .photo_classes, .photo_teacher {
-    width: 400px;
+    width: 500px;
 }
 
 .content {
     vertical-align: middle;
     line-height: normal;
     p {
-        font-size: 0.9em;
+        font-size: 1em;
         font-family: $content-font
     }
 }
@@ -140,7 +140,7 @@ body {
 .content-register {
     text-align: justify;
     font-family: $content-font;
-    font-size: 0.9em;
+    font-size: 1em;
     font-family: $content-font
 }
 
@@ -158,42 +158,26 @@ body {
     border-radius: 10px;
 }
 
-.carte_responsive {
+.card_responsive {
     overflow:hidden;
     padding-bottom:56.25%;
     position:relative;
     height:0;
 }
 
-.carte_responsive iframe {
+.card_responsive iframe {
     left:0;
     top:0;
-    height:100%;
+    height:500px;
     width:100%;
     position:absolute;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
     .content {
         margin-left: 20px;
         margin-right: 20px;
     }
-    .bouton {
-        top: 30%;
-    }
-    #leftButton{
-        left: 0;
-    }
-    #rightButton{
-        right: 0;
-    }
-    #photo-accueil, .photo_classes, .photo_teacher {
-        width: 100%;
-        height: auto;
-    }
-}
-
-@media screen and (max-width: 650px) {
     .carousel {
         #container-carousel {
             .photo-carousel {
@@ -201,16 +185,34 @@ body {
                 height: auto;
             }
             .bouton {
+                width: 45px;
+                top: 50%;
+            }
+            #leftButton{
+                left: 0;
+            }
+            #rightButton{
+                right: 0;
+            }
+        }  
+    }
+    #photo-accueil, .photo_classes, .photo_teacher {
+        width: 100%;
+        height: auto;
+    }
+    .card_responsive iframe {
+        height:100%;
+        width:100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .carousel {
+        #container-carousel {
+            .bouton {
                 width: 35px;
                 top: 30%;
             }
         }
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    #photo-accueil {
-        width: 100%;
-        height: 500px;
     }
 }
