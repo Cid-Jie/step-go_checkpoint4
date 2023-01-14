@@ -61,11 +61,8 @@ a.nav-link.dropdown-toggle {
     color: $primary-dark;
     margin-top: auto;
     margin-bottom: 0;
+    font-family: $content-font;
     width: 100%;
-}
-
-#logo-login {
-    cursor: unset;
 }
 
 @media screen and (max-width: 768px) {
