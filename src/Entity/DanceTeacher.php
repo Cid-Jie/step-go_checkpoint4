@@ -40,8 +40,9 @@ class DanceTeacher
     #[Assert\NotBlank(message: 'Merci de remplir ce champ.')]
     private ?string $story = null;
 
-    #[ORM\ManyToOne(inversedBy: 'danceTeachers')]
-    private ?DanceClasses $danceClasses = null;
+    #[ORM\OneToOne(inversedBy: 'danceTeacher', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?DanceClasses $dance_classes = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'Veuillez insérer une image pour cette danse.')]
@@ -91,18 +92,6 @@ class DanceTeacher
         return $this;
     }
 
-    public function getDanceClasses(): ?DanceClasses
-    {
-        return $this->danceClasses;
-    }
-
-    public function setDanceClasses(?DanceClasses $danceClasses): self
-    {
-        $this->danceClasses = $danceClasses;
-
-        return $this;
-    }
-
     public function getPhoto(): ?string
     {
         return $this->photo;
@@ -111,6 +100,18 @@ class DanceTeacher
     public function setPhoto(string $photo): self
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getDanceClasses(): ?DanceClasses
+    {
+        return $this->dance_classes;
+    }
+
+    public function setDanceClasses(DanceClasses $dance_classes): self
+    {
+        $this->dance_classes = $dance_classes;
 
         return $this;
     }
