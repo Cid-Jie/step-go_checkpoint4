@@ -44,8 +44,13 @@ class DanceClasses
     )]
     private ?string $poster = null;
 
-    #[ORM\ManyToOne(inversedBy: 'danceClasses')]
-    private ?UserMessage $user_message = null;
+    #[ORM\ManyToMany(targetEntity: UserMessage::class, inversedBy: 'danceClasses')]
+    private Collection $user_messages;
+
+    public function __construct()
+    {
+        $this->user_messages = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,14 +110,26 @@ class DanceClasses
         return $this;
     }
 
-    public function getUserMessage(): ?UserMessage
+    /**
+     * @return Collection<int, UserMessage>
+     */
+    public function getUserMessages(): Collection
     {
-        return $this->user_message;
+        return $this->user_messages;
     }
 
-    public function setUserMessage(?UserMessage $user_message): self
+    public function addUserMessage(UserMessage $userMessage): self
     {
-        $this->user_message = $user_message;
+        if (!$this->user_messages->contains($userMessage)) {
+            $this->user_messages[] = $userMessage;
+        }
+
+        return $this;
+    }
+
+    public function removeUserMessage(UserMessage $userMessage): self
+    {
+        $this->user_messages->removeElement($userMessage);
 
         return $this;
     }

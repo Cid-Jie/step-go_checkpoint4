@@ -47,7 +47,7 @@ class UserMessage
     #[Assert\NotBlank(message: 'Merci de remplir ce champ.')]
     private ?string $message = null;
 
-    #[ORM\OneToMany(mappedBy: 'user_message', targetEntity: DanceClasses::class)]
+    #[ORM\ManyToMany(targetEntity: DanceClasses::class, mappedBy: 'user_messages')]
     private Collection $danceClasses;
 
     public function __construct()
@@ -132,7 +132,7 @@ class UserMessage
     {
         if (!$this->danceClasses->contains($danceClass)) {
             $this->danceClasses[] = $danceClass;
-            $danceClass->setUserMessage($this);
+            $danceClass->addUserMessage($this);
         }
 
         return $this;
@@ -141,10 +141,7 @@ class UserMessage
     public function removeDanceClass(DanceClasses $danceClass): self
     {
         if ($this->danceClasses->removeElement($danceClass)) {
-            // set the owning side to null (unless already changed)
-            if ($danceClass->getUserMessage() === $this) {
-                $danceClass->setUserMessage(null);
-            }
+            $danceClass->removeUserMessage($this);
         }
 
         return $this;
