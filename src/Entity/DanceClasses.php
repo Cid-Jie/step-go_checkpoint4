@@ -44,13 +44,16 @@ class DanceClasses
     )]
     private ?string $poster = null;
 
-    #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: UserMessage::class)]
-    private Collection $userMessages;
+    #[ORM\ManyToOne(inversedBy: 'danceClasses')]
+    private ?UserMessage $userMessage = null;
+
+    // #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: UserMessage::class)]
+    // private Collection $userMessages;
 
     public function __construct()
     {
         $this->danceTeachers = new ArrayCollection();
-        $this->userMessages = new ArrayCollection();
+      //  $this->userMessages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -124,32 +127,44 @@ class DanceClasses
         return $this;
     }
 
-    /**
-     * @return Collection<int, UserMessage>
-     */
-    public function getUserMessages(): Collection
+    // /**
+    //  * @return Collection<int, UserMessage>
+    //  */
+    // public function getUserMessages(): Collection
+    // {
+    //     return $this->userMessages;
+    // }
+
+    // public function addUserMessage(UserMessage $userMessage): self
+    // {
+    //     if (!$this->userMessages->contains($userMessage)) {
+    //         $this->userMessages[] = $userMessage;
+    //         $userMessage->setDanceClasses($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeUserMessage(UserMessage $userMessage): self
+    // {
+    //     if ($this->userMessages->removeElement($userMessage)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($userMessage->getDanceClasses() === $this) {
+    //             $userMessage->setDanceClasses(null);
+    //         }
+    //     }
+
+    //     return $this;
+    // }
+
+    public function getUserMessage(): ?UserMessage
     {
-        return $this->userMessages;
+        return $this->userMessage;
     }
 
-    public function addUserMessage(UserMessage $userMessage): self
+    public function setUserMessage(?UserMessage $userMessage): self
     {
-        if (!$this->userMessages->contains($userMessage)) {
-            $this->userMessages[] = $userMessage;
-            $userMessage->setDanceClasses($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUserMessage(UserMessage $userMessage): self
-    {
-        if ($this->userMessages->removeElement($userMessage)) {
-            // set the owning side to null (unless already changed)
-            if ($userMessage->getDanceClasses() === $this) {
-                $userMessage->setDanceClasses(null);
-            }
-        }
+        $this->userMessage = $userMessage;
 
         return $this;
     }

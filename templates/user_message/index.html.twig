@@ -26,7 +26,11 @@
                 <td>{{ user_message.email }}</td>
                 <td>{{ user_message.reason }}</td>
                 <td>{{ user_message.message }}</td>
-                <td>{{ user_message.danceClasses.name }}</td>
+                <td>
+                {% for danceClasse in user_message.danceClasses %}
+                    {{ danceClasse.name }}
+                {% endfor %}
+                </td>
                 <td>
                     <a href="{{ path('app_user_message_show', {'id': user_message.id}) }}">Voir</a>
                 </td>  

@@ -30,10 +30,16 @@
             </tr>
             <tr>
                 <th>Cours de danse</th>
-            <td>{{ user_message.danceClasses.name }}</td>
+                <td>
+                {% for danceClasse in user_message.danceClasses %}
+                    {{ danceClasse.name }}
+                {% endfor %}
+                </td>
             </tr>
         </tbody>
     </table>
+
+    <a href="mailto:mailto:{{ user_message.email }}">Répondre</a> 
 
     {{ include('user_message/_delete_form.html.twig') }}
 

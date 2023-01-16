@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\DanceClasses;
 use App\Entity\UserMessage;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -36,6 +37,7 @@ class UserMessageType extends AbstractType
             ])
             ->add('reason', ChoiceType::class, [
                 'label' => 'Raison du contact : ',
+                'placeholder' => 'Sélectionner une raison',
                 'choices' => [
                     'Renseignements' => 'Renseignements',
                     'Inscription' => 'Inscription',
@@ -43,10 +45,13 @@ class UserMessageType extends AbstractType
                     'Autre demande' => 'Autre demande',
                 ],
             ])
-            ->add('danceClasses', null, [
+            ->add('danceClasses', EntityType::class, [
                 'class' => DanceClasses::class,
                 'choice_label' => 'name',
-                'label' => 'Cours de danse concerné : ',
+                'label' => 'Cours de danse concerné(s) :',
+                'multiple' => true,
+                'expanded' => true,
+                'by_reference' => false
             ])
             ->add('message', TextareaType::class, [
                 'label' => 'Votre message : ',
