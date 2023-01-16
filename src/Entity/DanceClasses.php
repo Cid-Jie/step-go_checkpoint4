@@ -47,9 +47,6 @@ class DanceClasses
     #[ORM\ManyToOne(inversedBy: 'danceClasses')]
     private ?UserMessage $user_message = null;
 
-    // #[ORM\ManyToOne(inversedBy: 'danceClasses')]
-    // private ?UserMessage $userMessage = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -90,48 +87,6 @@ class DanceClasses
 
         return $this;
     }
-
-    // /**
-    //  * @return Collection<int, UserMessage>
-    //  */
-    // public function getUserMessages(): Collection
-    // {
-    //     return $this->userMessages;
-    // }
-
-    // public function addUserMessage(UserMessage $userMessage): self
-    // {
-    //     if (!$this->userMessages->contains($userMessage)) {
-    //         $this->userMessages[] = $userMessage;
-    //         $userMessage->setDanceClasses($this);
-    //     }
-
-    //     return $this;
-    // }
-
-    // public function removeUserMessage(UserMessage $userMessage): self
-    // {
-    //     if ($this->userMessages->removeElement($userMessage)) {
-    //         // set the owning side to null (unless already changed)
-    //         if ($userMessage->getDanceClasses() === $this) {
-    //             $userMessage->setDanceClasses(null);
-    //         }
-    //     }
-
-    //     return $this;
-    // }
-
-    // public function getUserMessage(): ?UserMessage
-    // {
-    //     return $this->userMessage;
-    // }
-
-    // public function setUserMessage(?UserMessage $userMessage): self
-    // {
-    //     $this->userMessage = $userMessage;
-
-    //     return $this;
-    // }
 
     public function getDanceTeacher(): ?DanceTeacher
     {

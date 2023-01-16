@@ -55,14 +55,6 @@ class UserMessage
         $this->danceClasses = new ArrayCollection();
     }
 
-    // #[ORM\OneToMany(mappedBy: 'userMessage', targetEntity: DanceClasses::class)]
-    // private Collection $danceClasses;
-
-    // public function __construct()
-    // {
-    //     $this->danceClasses = new ArrayCollection();
-    // }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -127,48 +119,6 @@ class UserMessage
 
         return $this;
     }
-
-    // public function getDanceClasses(): ?DanceClasses
-    // {
-    //     return $this->danceClasses;
-    // }
-
-    // public function setDanceClasses(?DanceClasses $danceClasses): self
-    // {
-    //     $this->danceClasses = $danceClasses;
-
-    //     return $this;
-    // }
-
-    // /**
-    //  * @return Collection<int, DanceClasses>
-    //  */
-    // public function getDanceClasses(): Collection
-    // {
-    //     return $this->danceClasses;
-    // }
-
-    // public function addDanceClass(DanceClasses $danceClass): self
-    // {
-    //     if (!$this->danceClasses->contains($danceClass)) {
-    //         $this->danceClasses[] = $danceClass;
-    //         $danceClass->setUserMessage($this);
-    //     }
-
-    //     return $this;
-    // }
-
-    // public function removeDanceClass(DanceClasses $danceClass): self
-    // {
-    //     if ($this->danceClasses->removeElement($danceClass)) {
-    //         // set the owning side to null (unless already changed)
-    //         if ($danceClass->getUserMessage() === $this) {
-    //             $danceClass->setUserMessage(null);
-    //         }
-    //     }
-
-    //     return $this;
-    // }
 
     /**
      * @return Collection<int, DanceClasses>
