@@ -45,20 +45,10 @@ class DanceClasses
     private ?string $poster = null;
 
     #[ORM\ManyToOne(inversedBy: 'danceClasses')]
-    private ?UserMessage $userMessage = null;
+    private ?UserMessage $user_message = null;
 
-    // #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: UserMessage::class)]
-    // private Collection $userMessages;
-
-    public function __construct()
-    {
-<<<<<<< HEAD
-        $this->danceTeachers = new ArrayCollection();
-      //  $this->userMessages = new ArrayCollection();
-=======
-        $this->userMessages = new ArrayCollection();
->>>>>>> 5ff89b3cd0952f05ea9ee6d617009777769eb10c
-    }
+    // #[ORM\ManyToOne(inversedBy: 'danceClasses')]
+    // private ?UserMessage $userMessage = null;
 
     public function getId(): ?int
     {
@@ -131,17 +121,17 @@ class DanceClasses
     //     return $this;
     // }
 
-    public function getUserMessage(): ?UserMessage
-    {
-        return $this->userMessage;
-    }
+    // public function getUserMessage(): ?UserMessage
+    // {
+    //     return $this->userMessage;
+    // }
 
-    public function setUserMessage(?UserMessage $userMessage): self
-    {
-        $this->userMessage = $userMessage;
+    // public function setUserMessage(?UserMessage $userMessage): self
+    // {
+    //     $this->userMessage = $userMessage;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getDanceTeacher(): ?DanceTeacher
     {
@@ -156,6 +146,18 @@ class DanceClasses
         }
 
         $this->danceTeacher = $danceTeacher;
+
+        return $this;
+    }
+
+    public function getUserMessage(): ?UserMessage
+    {
+        return $this->user_message;
+    }
+
+    public function setUserMessage(?UserMessage $user_message): self
+    {
+        $this->user_message = $user_message;
 
         return $this;
     }
