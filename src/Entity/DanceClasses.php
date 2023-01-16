@@ -34,8 +34,8 @@ class DanceClasses
     #[Assert\NotBlank(message: 'Merci de remplir ce champ.')]
     private ?string $description = null;
 
-    #[ORM\OneToMany(mappedBy: 'danceClasses', targetEntity: DanceTeacher::class)]
-    private Collection $danceTeachers;
+    #[ORM\OneToOne(mappedBy: 'dance_classes', cascade: ['persist', 'remove'])]
+    private ?DanceTeacher $danceTeacher = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'Veuillez insérer une image pour cette danse.')]
@@ -49,7 +49,6 @@ class DanceClasses
 
     public function __construct()
     {
-        $this->danceTeachers = new ArrayCollection();
         $this->userMessages = new ArrayCollection();
     }
 
@@ -78,36 +77,6 @@ class DanceClasses
     public function setDescription(string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, DanceTeacher>
-     */
-    public function getDanceTeachers(): Collection
-    {
-        return $this->danceTeachers;
-    }
-
-    public function addDanceTeacher(DanceTeacher $danceTeacher): self
-    {
-        if (!$this->danceTeachers->contains($danceTeacher)) {
-            $this->danceTeachers[] = $danceTeacher;
-            $danceTeacher->setDanceClasses($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDanceTeacher(DanceTeacher $danceTeacher): self
-    {
-        if ($this->danceTeachers->removeElement($danceTeacher)) {
-            // set the owning side to null (unless already changed)
-            if ($danceTeacher->getDanceClasses() === $this) {
-                $danceTeacher->setDanceClasses(null);
-            }
-        }
 
         return $this;
     }
@@ -150,6 +119,23 @@ class DanceClasses
                 $userMessage->setDanceClasses(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDanceTeacher(): ?DanceTeacher
+    {
+        return $this->danceTeacher;
+    }
+
+    public function setDanceTeacher(DanceTeacher $danceTeacher): self
+    {
+        // set the owning side of the relation if necessary
+        if ($danceTeacher->getDanceClasses() !== $this) {
+            $danceTeacher->setDanceClasses($this);
+        }
+
+        $this->danceTeacher = $danceTeacher;
 
         return $this;
     }

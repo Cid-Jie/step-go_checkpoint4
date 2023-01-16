@@ -67,13 +67,13 @@ class DanceTeacherFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        foreach (self::TEACHERS as $danceTeachers) {
+        foreach (self::TEACHERS as $danceTeacher) {
             $teacher = new DanceTeacher();
-            $teacher->setFirstname($danceTeachers['firstname']);
-            $teacher->setLastname($danceTeachers['lastname']);
-            $teacher->setStory($danceTeachers['story']);
-            $teacher->setPhoto($danceTeachers['photo']);
-            $teacher->setDanceClasses($this->getReference('dance_classes_' . $danceTeachers['dance_classes_id']));
+            $teacher->setFirstname($danceTeacher['firstname']);
+            $teacher->setLastname($danceTeacher['lastname']);
+            $teacher->setStory($danceTeacher['story']);
+            $teacher->setPhoto($danceTeacher['photo']);
+            $teacher->setDanceClasses($this->getReference('dance_classes_' . $danceTeacher['dance_classes_id']));
 
             $manager->persist($teacher);
         }
