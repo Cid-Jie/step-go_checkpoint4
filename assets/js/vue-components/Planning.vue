@@ -105,7 +105,9 @@ export default {
       fetch(`/get-events?start=${firstDay}&end=${lastDay}`)
           .then(response => response.json())
           .then(response => {
-            this.events = response;      
+            console.log(this.events);
+            this.events = response;
+            console.log(this.events);
           })
     },
   },
