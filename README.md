@@ -1,16 +1,17 @@
 # Projet Step and Go
 
-Here is my graduation project. I developed this site alone in 3 days at the Wild Code School. I made some modifications afterwards, with help, to finish it and make it more operational. This site is fictitious.
+Here is my project at the end of the training. I developed this site alone in 3 days at the Wild Code School.
+I made some modifications afterwards, with help, to finish it and make it more operational. This site is fictitious.
 
-I used the Symfony 5 framework.
+I used the Symfony 5 Framework.
 
-Step and Go is the name of a dance school for which I created a website, at the request of its director. This site was developed with the Symfony Framework. It consists of a presentation of the school, details of the different dance styles offered, a brief description of the teachers, as well as prices. It also displays a detailed course schedule, and a contact form allowing users to reach the director.
+Step and Go is the name of a dance school for which I made a website, at the request of its director. This website was developed with the Symfony Framework. It includes a presentation of the school, details of the different dance styles offered, a brief description of the teachers, as well as the prices. It also displays a detailed schedule of classes, and a contact form allowing users to reach the director. 
 
-Regarding the front-end part, I set up a navigation bar to reach each page (with a drop-down menu for dance classes and teachers). On the school's presentation page, a carousel allows you to scroll through photos. A dynamic weekly schedule displays dance classes as well as events organized throughout the year. One of the objectives was for the site to be visually colorful, but also responsive and ergonomic.
+Concerning the front-end, I set up a navigation bar to reach each page (with a drop-down menu for the dance classes and the teachers). On the presentation page of the school, a carousel allows you to scroll through photos. A dynamic weekly schedule displays the dance classes and events organized throughout the year. One of the objectives was that the site be visually colorful, but also responsive and ergonomic. 
 
-For the back-end part, the director is the one and only administrator of the site. The interface allows him to connect and have special tabs in order to be able to manage dance classes, teachers, and the planning of events (add, modify, delete). Messages sent by users via the contact form are also visible from this administrator section. Since the director did not know computer code, the back-end part had to be easy to use and intuitive.
+For the back-end part, the director is the only administrator of the site. The interface allows her to log in and to have special tabs to manage the dance classes, the teachers, and the events schedule (add, modify, delete). Messages sent by users via the contact form are also visible from this administrator area. The director not knowing the computer code, the back-end part had to be easy to use and intuitive. 
 
-Do not hesitate to clone to test!
+Feel free to clone to test!
 
 ![accueil_step_and_go](https://user-images.githubusercontent.com/76404051/214405194-f889335b-782c-4382-9bdc-23b6078636ce.png)
 
